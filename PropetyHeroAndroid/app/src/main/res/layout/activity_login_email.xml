@@ -34,7 +34,12 @@
             android:id="@+id/inputLayoutUserNameLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin">
+            android:layout_marginTop="@dimen/layout_margin"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp">
 
             <EditText
                 android:id="@+id/inputUserNameLogin"
@@ -42,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/text_hint_user_name"
                 android:inputType="textEmailAddress"
+                android:padding="@dimen/layout_margin"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,7 +56,12 @@
             android:id="@+id/inputLayoutPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_quarter">
+            android:layout_marginTop="@dimen/layout_margin_quarter"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp">
 
             <EditText
                 android:id="@+id/inputPasswordLogin"
@@ -58,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/text_hint_password"
                 android:inputType="textPassword"
+                android:padding="@dimen/layout_margin"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
