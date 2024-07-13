@@ -379,4 +379,9 @@
     </string>
     <string name="gps_perm_description">Ứng dụng cần sử dụng GPS để xác định vị trí</string>
     <string name="signup_title">Bạn chưa có tài khoản?</string>
+    <string name="hn_title">HN</string>
+    <string name="tp_hcm">TP.HCM</string>
+    <string name="hot_view_all">Xem Thêm Các bất Động Sản HOT</string>
+    <string name="search_title_1">Tìm kiếm cho thuê</string>
+    <string name="search_title_2">Bất động sản</string>
 </resources>

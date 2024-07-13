@@ -3,18 +3,26 @@ package com.gomicorp.propertyhero.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -29,25 +37,29 @@ import com.gomicorp.app.GoogleApiHelper;
 import com.gomicorp.helper.L;
 import com.gomicorp.helper.Utils;
 import com.gomicorp.propertyhero.R;
-import com.gomicorp.propertyhero.activities.CreateProductActivity;
-import com.gomicorp.propertyhero.activities.FindAreaActivity;
-import com.gomicorp.propertyhero.activities.LoginActivity;
-import com.gomicorp.propertyhero.adapters.AreaNearbyAdapter;
+import com.gomicorp.propertyhero.activities.ListViewProductActivity;
+import com.gomicorp.propertyhero.activities.ProductDetailsActivity;
+import com.gomicorp.propertyhero.adapters.DistrictSuggestAdapter;
+import com.gomicorp.propertyhero.adapters.ProductListHomeAdapter;
+import com.gomicorp.propertyhero.callbacks.OnLoadProductListener;
+import com.gomicorp.propertyhero.callbacks.OnRecyclerTouchListener;
+import com.gomicorp.propertyhero.callbacks.RecyclerTouchListner;
 import com.gomicorp.propertyhero.extras.EndPoints;
-import com.gomicorp.propertyhero.extras.UrlParams;
 import com.gomicorp.propertyhero.json.Parser;
+import com.gomicorp.propertyhero.json.ProductRequest;
 import com.gomicorp.propertyhero.model.Advertising;
-import com.gomicorp.propertyhero.model.Marker;
+import com.gomicorp.propertyhero.model.DistrictSuggest;
+import com.gomicorp.propertyhero.model.Product;
+import com.gomicorp.propertyhero.model.SearchInfo;
 import com.gomicorp.ui.ChildAnimation;
-import com.gomicorp.ui.ExpandableHeightGridView;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,17 +71,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private GoogleApiHelper googleApi;
     private LocationListener listener;
     private LatLng latLng;
-
     private List<Advertising> advList;
     private SliderLayout imageSlider;
-
-    private List<Marker> areaList;
-    private AreaNearbyAdapter areaNearbyAdapter;
-    private ExpandableHeightGridView grvAttractionNearby;
-
-    private List<Marker> universityList;
-    private AreaNearbyAdapter universityAdapter;
-    private ExpandableHeightGridView grvUniversity;
+    private List<Product> productList;
+    private ProductListHomeAdapter adapter;
+    private RecyclerView recyclerView;
+    private DistrictSuggestAdapter adapterHCM;
+    private RecyclerView rvHCM;
+    private DistrictSuggestAdapter adapterHN;
+    private RecyclerView rvHN;
+    private SearchInfo searchInfo;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -83,23 +94,114 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         imageSlider = (SliderLayout) root.findViewById(R.id.imageSlider);
-        grvAttractionNearby = (ExpandableHeightGridView) root.findViewById(R.id.grvAttractionNearby);
-        grvUniversity = (ExpandableHeightGridView) root.findViewById(R.id.grvUniversity);
 
         imageSlider.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, Utils.getScreenWidth() / 2));
 
-        setupAttractionNearby();
-        setupUniversity();
+        productList = new ArrayList<>();
 
         root.findViewById(R.id.btnViewAll).setOnClickListener(this);
         root.findViewById(R.id.btnApartment).setOnClickListener(this);
         root.findViewById(R.id.btnRoom).setOnClickListener(this);
-        root.findViewById(R.id.btnFindArea).setOnClickListener(this);
+        root.findViewById(R.id.hot_view_all).setOnClickListener(this);
 
-        root.findViewById(R.id.fabAddInfo).setVisibility(Config.DISABLE_CREATE ? View.GONE : View.VISIBLE);
-        root.findViewById(R.id.fabAddInfo).setOnClickListener(this);
+        recyclerView = root.findViewById(R.id.recycleView);
+        adapter = new ProductListHomeAdapter(productList);
+        recyclerView.setAdapter(adapter);
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListner(requireContext(), recyclerView, new OnRecyclerTouchListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent = new Intent(requireContext(), ProductDetailsActivity.class);
+                intent.putExtra(Config.DATA_EXTRA, productList.get(position).getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
+        rvHCM = root.findViewById(R.id.rv_hcm);
+        List<DistrictSuggest> hcmSuggest = createDistrictHCMSuggests();
+        adapterHCM = new DistrictSuggestAdapter(hcmSuggest);
+        rvHCM.setAdapter(adapterHCM);
+        rvHCM.addOnItemTouchListener(new RecyclerTouchListner(requireContext(), rvHCM, new OnRecyclerTouchListener() {
+            @Override
+            public void onClick(View view, int position) {
+                DistrictSuggest suggest = hcmSuggest.get(position);
+                Utils.launchMapView(getActivity(), suggest.getTitle() + ", TP. Hồ Chí Minh", suggest.getLatLng(), Config.UNDEFINED);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
+
+        rvHN = root.findViewById(R.id.rv_hn);
+        List<DistrictSuggest> hnSuggest = createDistrictHNSuggests();
+        adapterHN = new DistrictSuggestAdapter(hnSuggest);
+        rvHN.setAdapter(adapterHN);
+        rvHN.addOnItemTouchListener(new RecyclerTouchListner(requireContext(), rvHN, new OnRecyclerTouchListener() {
+            @Override
+            public void onClick(View view, int position) {
+                DistrictSuggest suggest = hnSuggest.get(position);
+                Utils.launchMapView(getActivity(), suggest.getTitle() + ", Hà Nội", suggest.getLatLng(), Config.UNDEFINED);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
+        TextView textView = root.findViewById(R.id.suggest_title);
+        String string1 = "Nhận ngay thông tin\nbất động sản";
+        String string2 = " HOT tại PHR ";
+        SpannableString spannableString = new SpannableString(string1 + string2);
+        spannableString.setSpan(new BackgroundColorSpan(Color.parseColor("#FEEDCC")), string1.length(), string1.length() + string2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#0077D5")), string1.length(), string1.length() + 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.BOLD | Typeface.ITALIC), string1.length(), string1.length() + 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#0077D5")), string1.length() + 8, string1.length() + string2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.BOLD | Typeface.ITALIC), string1.length() + 8, string1.length() + string2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.setText(spannableString, TextView.BufferType.SPANNABLE);
+
+        TextView aiTxt = root.findViewById(R.id.ai_title);
+        String text = "PHR đề xuất theo khu vực bằng AI";
+        SpannableString spannableAi = new SpannableString(text);
+        spannableAi.setSpan(new ForegroundColorSpan(Color.parseColor("#0077D5")), text.length() - 8, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.BOLD | Typeface.ITALIC), text.length() - 8, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        aiTxt.setText(spannableAi, TextView.BufferType.SPANNABLE);
 
         return root;
+    }
+
+    private List<DistrictSuggest> createDistrictHNSuggests() {
+        List<DistrictSuggest> hn = new ArrayList<>();
+        hn.add(new DistrictSuggest(0, "Quận Ba Đình", R.drawable.q_bdinh, new LatLng(21.033825600, 105.814392200)));
+        hn.add(new DistrictSuggest(1, "Quận Cầu Giấy", R.drawable.q_cgiay, new LatLng(21.030955600, 105.801087700)));
+        hn.add(new DistrictSuggest(2, "Quận Đống Đa", R.drawable.q_dda, new LatLng(21.020009300, 105.830622200)));
+        hn.add(new DistrictSuggest(3, "Quận Hai Bà Trưng", R.drawable.q_hbtrung, new LatLng(21.009990600, 105.849707500)));
+        hn.add(new DistrictSuggest(4, "Quận Hoàng Kiếm", R.drawable.q_hkiem, new LatLng(21.028745000, 105.850717000)));
+        hn.add(new DistrictSuggest(5, "Quận Hoàng Mai", R.drawable.q_hmai, new LatLng(20.968109300, 105.848415300)));
+        hn.add(new DistrictSuggest(6, "Quận Thanh Xuân", R.drawable.q_txuan, new LatLng(20.994643000, 105.799816400)));
+        return hn;
+    }
+
+    private List<DistrictSuggest> createDistrictHCMSuggests() {
+        List<DistrictSuggest> hcm = new ArrayList<>();
+        hcm.add(new DistrictSuggest(0, "Quận 1", R.drawable.q1, new LatLng(10.780640700, 106.699092600)));
+        hcm.add(new DistrictSuggest(1, "Quận 3", R.drawable.q3, new LatLng(10.782868900, 106.686425100)));
+        hcm.add(new DistrictSuggest(2, "Quận 4", R.drawable.q4, new LatLng(10.766533400, 106.706003300)));
+        hcm.add(new DistrictSuggest(3, "Quận 5", R.drawable.q5, new LatLng(10.755863600, 106.667370800)));
+        hcm.add(new DistrictSuggest(4, "Quận 7", R.drawable.q7, new LatLng(10.732338400, 106.726505200)));
+        hcm.add(new DistrictSuggest(5, "Quận 10", R.drawable.q10, new LatLng(10.767627200, 106.666413500)));
+        hcm.add(new DistrictSuggest(6, "Quận Bình Thạnh", R.drawable.q_bthanh, new LatLng(10.803239000, 106.696714500)));
+        hcm.add(new DistrictSuggest(7, "Quận Gò Vấp", R.drawable.q_gvap, new LatLng(10.831512900, 106.669296700)));
+        hcm.add(new DistrictSuggest(8, "Quận Phú Nhuận", R.drawable.q_pn, new LatLng(10.795046400, 106.676008200)));
+        hcm.add(new DistrictSuggest(9, "TP Thủ Đức", R.drawable.q_tduc, new LatLng(10.848243600, 106.772226000)));
+        return hcm;
     }
 
     @Override
@@ -115,13 +217,47 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     return;
 
                 latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                fetchAttractionNearby();
             }
         };
 
+        searchInfo = new SearchInfo(latLng.latitude, latLng.longitude, 0, Config.UNDEFINED);
+        fetchProductList();
+
         fetchImageSliderData();
-        fetchAttractionNearby();
-        fetchUniversity();
+    }
+
+    private void fetchProductList() {
+        searchInfo.setPropertyID("1000");
+        searchInfo.setStartLat("10.619674722094736");
+        searchInfo.setStartLng("106.57988257706165");
+        searchInfo.setEndLat("10.965413634575896");
+        searchInfo.setEndLng("106.7968474701047");
+
+        Map<String, String> filterSet = AppController.getInstance().getPrefManager().getFilterSet();
+        searchInfo.setMinPrice(filterSet.get(Config.KEY_MIN_PRICE));
+        searchInfo.setMaxPrice(filterSet.get(Config.KEY_MAX_PRICE));
+        searchInfo.setMinArea(filterSet.get(Config.KEY_MIN_AREA));
+        searchInfo.setMaxArea(filterSet.get(Config.KEY_MAX_AREA));
+        searchInfo.setBed(filterSet.get(Config.KEY_BED));
+        searchInfo.setBath(filterSet.get(Config.KEY_BATH));
+        searchInfo.setStatus(String.valueOf(Config.UNDEFINED));
+
+        ProductRequest.search(searchInfo, new OnLoadProductListener() {
+            @Override
+            public void onSuccess(List<Product> products, int totalItems) {
+                productList.addAll(products);
+                if (totalItems > 4) {
+                    productList = products.subList(0, 4);
+                }
+                adapter.addProductList(productList);
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                Log.e(TAG, "Error at fetchProductList()");
+                L.showToast(getString(R.string.request_time_out));
+            }
+        });
     }
 
     @Override
@@ -152,21 +288,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.btnRoom:
                 Utils.launchMapView(getActivity(), getString(R.string.text_room), latLng, Config.PROPERTY_ROOM);
                 break;
-            case R.id.btnFindArea:
-                startActivity(new Intent(getActivity(), FindAreaActivity.class));
-                break;
-            case R.id.fabAddInfo:
-                if (AppController.getInstance().getPrefManager().getUserID() == 0) {
-                    Intent intentLogin = new Intent(getActivity(), LoginActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString(Config.STRING_DATA, CreateProductActivity.class.getSimpleName());
-                    intentLogin.putExtra(Config.DATA_EXTRA, bundle);
-                    startActivity(intentLogin);
-                } else if (AppController.getInstance().getPrefManager().getPhoneNumber() == null) {
-                    L.launchUpdatePhone(getActivity(), false);
-                } else {
-                    startActivity(new Intent(getActivity(), CreateProductActivity.class));
-                }
+            case R.id.hot_view_all:
+                Intent intent = new Intent(requireContext(), ListViewProductActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(Config.STRING_DATA, "Bất động sản HOT");
+                bundle.putParcelable(Config.PARCELABLE_DATA, searchInfo);
+                intent.putExtra(Config.DATA_EXTRA, bundle);
+                startActivity(intent);
                 break;
         }
     }
@@ -205,77 +333,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         imageSlider.setCustomAnimation(new ChildAnimation());
         imageSlider.setDuration(4000);
-    }
-
-    private void setupAttractionNearby() {
-        areaList = new ArrayList<>();
-        areaNearbyAdapter = new AreaNearbyAdapter(getActivity(), areaList);
-        grvAttractionNearby.setExpanded(false);
-        grvAttractionNearby.setAdapter(areaNearbyAdapter);
-        grvAttractionNearby.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                L.showSelectDistance(getActivity(), areaList.get(position));
-            }
-        });
-    }
-
-    private void setupUniversity() {
-        universityList = new ArrayList<>();
-        universityAdapter = new AreaNearbyAdapter(getActivity(), universityList);
-        grvUniversity.setExpanded(false);
-        grvUniversity.setAdapter(universityAdapter);
-        grvUniversity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                L.showSelectDistance(getActivity(), universityList.get(position));
-            }
-        });
-    }
-
-    private void fetchAttractionNearby() {
-        String url = EndPoints.URL_ATTRACTION_BY_LOCATION
-                .replace(UrlParams.LAT, String.valueOf(latLng.latitude))
-                .replace(UrlParams.LNG, String.valueOf(latLng.longitude))
-                .replace(UrlParams.NUM_ITEMS, "3")
-                .replace(UrlParams.LANGUAGE_TYPE, String.valueOf(AppController.getInstance().getPrefManager().getLanguageType()));
-
-        JsonObjectRequest reqAttractionNearby = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                if (Config.DEBUG)
-                    Log.e("fetchAttractionNearby", "onResponse: " + new Gson().toJson(response));
-                areaList = Parser.markerList(response);
-                areaNearbyAdapter.setAttractionList(areaList);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Error at fetchAttractionNearby()");
-            }
-        });
-
-        AppController.getInstance().addToRequestQueue(reqAttractionNearby, TAG);
-    }
-
-    private void fetchUniversity() {
-        String url = EndPoints.URL_UNIVERSITY_KOREA
-                .replace(UrlParams.NUM_ITEMS, "3")
-                .replace(UrlParams.LANGUAGE_TYPE, String.valueOf(AppController.getInstance().getPrefManager().getLanguageType()));
-
-        JsonObjectRequest reqUniversity = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                universityList = Parser.markerList(response);
-                universityAdapter.setAttractionList(universityList);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Error at fetchUniversity()");
-            }
-        });
-
-        AppController.getInstance().addToRequestQueue(reqUniversity, TAG);
     }
 }

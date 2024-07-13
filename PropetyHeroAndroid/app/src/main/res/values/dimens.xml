@@ -23,7 +23,7 @@
     <dimen name="avatar_size">128dp</dimen>
     <dimen name="ic_action_size">32dp</dimen>
     <dimen name="ic_link_width">96dp</dimen>
-    <dimen name="ic_link_height">64dp</dimen>
+    <dimen name="ic_link_height">96dp</dimen>
     <dimen name="product_thumb_side">96dp</dimen>
     <dimen name="management_thumb_side">120dp</dimen>
 
