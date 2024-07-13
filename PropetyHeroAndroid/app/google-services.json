@@ -51,10 +51,10 @@
               "client_type": 3
             },
             {
-              "client_id": "721105407584-lj93al1ijc39uipfdu5to0qtmklgr6b7.apps.googleusercontent.com",
+              "client_id": "721105407584-1tmaatkv43rokds6dahf7l1d6lfafmro.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.gomicorp.propertyhero"
+                "bundle_id": "com.propertyhero.app"
               }
             }
           ]
@@ -69,6 +69,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "721105407584-34qk8a9kp45phgjcs586ll466cnqkero.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.propertyhero.app",
+            "certificate_hash": "5ae77e6bcec9cb9571ffc39224c05226c9b33007"
+          }
+        },
+        {
+          "client_id": "721105407584-js2gj990vhe8qbkeecm1aa6c4h22r7vi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.propertyhero.app",
+            "certificate_hash": "ded2021cb1030a4784e473b176da4229a95554b5"
+          }
+        },
         {
           "client_id": "721105407584-cko8m5r1popcbm0i1oj3t7n2bipchhhs.apps.googleusercontent.com",
           "client_type": 3
@@ -90,10 +106,10 @@
               "client_type": 3
             },
             {
-              "client_id": "721105407584-lj93al1ijc39uipfdu5to0qtmklgr6b7.apps.googleusercontent.com",
+              "client_id": "721105407584-1tmaatkv43rokds6dahf7l1d6lfafmro.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.gomicorp.propertyhero"
+                "bundle_id": "com.propertyhero.app"
               }
             }
           ]
@@ -145,10 +161,10 @@
               "client_type": 3
             },
             {
-              "client_id": "721105407584-lj93al1ijc39uipfdu5to0qtmklgr6b7.apps.googleusercontent.com",
+              "client_id": "721105407584-1tmaatkv43rokds6dahf7l1d6lfafmro.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.gomicorp.propertyhero"
+                "bundle_id": "com.propertyhero.app"
               }
             }
           ]
