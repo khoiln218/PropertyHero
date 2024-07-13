@@ -1,0 +1,175 @@
+PODS:
+  - Alamofire (5.6.4)
+  - AppAuth (1.6.0):
+    - AppAuth/Core (= 1.6.0)
+    - AppAuth/ExternalUserAgent (= 1.6.0)
+  - AppAuth/Core (1.6.0)
+  - AppAuth/ExternalUserAgent (1.6.0):
+    - AppAuth/Core
+  - DatePickerDialog (4.0)
+  - DLRadioButton (1.4.12)
+  - Dto (0.2.0):
+    - ValidatedPropertyKit (~> 0.0.4)
+  - ESPullToRefresh (2.9.3)
+  - FlexibleTable (0.2.0)
+  - Google-Maps-iOS-Utils (4.2.2):
+    - Google-Maps-iOS-Utils/Clustering (= 4.2.2)
+    - Google-Maps-iOS-Utils/Geometry (= 4.2.2)
+    - Google-Maps-iOS-Utils/GeometryUtils (= 4.2.2)
+    - Google-Maps-iOS-Utils/Heatmap (= 4.2.2)
+    - Google-Maps-iOS-Utils/QuadTree (= 4.2.2)
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/Clustering (4.2.2):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/Geometry (4.2.2):
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/GeometryUtils (4.2.2):
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/Heatmap (4.2.2):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/QuadTree (4.2.2):
+    - GoogleMaps (~> 7.3)
+  - GoogleMaps (7.3.0):
+    - GoogleMaps/Maps (= 7.3.0)
+  - GoogleMaps/Base (7.3.0)
+  - GoogleMaps/Maps (7.3.0):
+    - GoogleMaps/Base
+  - GoogleSignIn (7.0.0):
+    - AppAuth (~> 1.5)
+    - GTMAppAuth (< 3.0, >= 1.3)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.1)
+  - GTMAppAuth (2.0.0):
+    - AppAuth/Core (~> 1.6)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.5)
+  - GTMSessionFetcher/Core (3.1.0)
+  - ImageSlideshow (1.9.2):
+    - ImageSlideshow/Core (= 1.9.2)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/SDWebImage (1.9.2):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
+  - MBProgressHUD (1.2.0)
+  - MGAPIService (3.0.0):
+    - ObjectMapper (~> 4.2)
+    - RxAlamofire (~> 5.6)
+    - RxSwift (~> 5.1)
+  - MGArchitecture (2.0.2):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
+  - MGLoadMore (3.0.2):
+    - ESPullToRefresh (~> 2.9)
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
+  - ObjectMapper (4.2.0)
+  - Reusable (4.1.2):
+    - Reusable/Storyboard (= 4.1.2)
+    - Reusable/View (= 4.1.2)
+  - Reusable/Storyboard (4.1.2)
+  - Reusable/View (4.1.2)
+  - RSKImageCropper (4.0.0)
+  - RxAlamofire (5.7.1):
+    - RxAlamofire/Core (= 5.7.1)
+  - RxAlamofire/Core (5.7.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 5.1)
+  - RxCocoa (5.1.3):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.3):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.3)
+  - RxViewController (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+  - Then (2.7.0)
+  - ValidatedPropertyKit (0.0.4)
+
+DEPENDENCIES:
+  - DatePickerDialog
+  - DLRadioButton (~> 1.4)
+  - Dto
+  - FlexibleTable
+  - Google-Maps-iOS-Utils (~> 4.2.2)
+  - GoogleMaps (~> 7.3.0)
+  - GoogleSignIn
+  - ImageSlideshow (~> 1.9.2)
+  - ImageSlideshow/SDWebImage
+  - MBProgressHUD (~> 1.2)
+  - MGAPIService (~> 3.0.0)
+  - MGArchitecture (~> 2.0.1)
+  - MGLoadMore (~> 3.0.2)
+  - Reusable (~> 4.1)
+  - RSKImageCropper
+  - RxViewController
+  - SDWebImage (~> 5.8.3)
+  - Then (~> 2.7)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AppAuth
+    - DatePickerDialog
+    - DLRadioButton
+    - Dto
+    - ESPullToRefresh
+    - FlexibleTable
+    - Google-Maps-iOS-Utils
+    - GoogleMaps
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - ImageSlideshow
+    - MBProgressHUD
+    - MGAPIService
+    - MGArchitecture
+    - MGLoadMore
+    - ObjectMapper
+    - Reusable
+    - RSKImageCropper
+    - RxAlamofire
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxViewController
+    - SDWebImage
+    - Then
+    - ValidatedPropertyKit
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
+  DatePickerDialog: ccff2f91ff7a018057a4d72fa5ad6de49c8cb0cd
+  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
+  Dto: 0346adb2a98017204d384e981352c7f864296a1f
+  ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
+  FlexibleTable: 9799aa65cc46cb977f92778d2a2f6dd94cceffa7
+  Google-Maps-iOS-Utils: f77eab4c4326d7e6a277f8e23a0232402731913a
+  GoogleMaps: a146f275ee429d14822178c7a841c03366ec92a1
+  GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
+  GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
+  GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MGAPIService: 83684387a742af98b944f5badfa566cc2e146318
+  MGArchitecture: 122eacece9de8cbb3576af1329aa7c76118e47b7
+  MGLoadMore: c43a39da03c2ac7697f6c3fa1812681f7f751f25
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  RSKImageCropper: 90dfe482402fb8a40cabd5fea65186d9102cc425
+  RxAlamofire: 8e144c62dcc01d68dcb366bfc542eb6dd46bab78
+  RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
+  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
+  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  RxViewController: 7330a46e5c31cd680db169da4c9fc8676e975a81
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  ValidatedPropertyKit: 599b32854be66b3eea55c0ad7aa22c52cba4b997
+
+PODFILE CHECKSUM: 04a2abe70010e2f50054d78fbf1ebbe3ff797851
+
+COCOAPODS: 1.11.3

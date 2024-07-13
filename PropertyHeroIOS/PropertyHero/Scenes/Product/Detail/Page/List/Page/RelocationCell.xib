@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RelocationCell" customModule="PropertyHero" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="293" height="158"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="293" height="158"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-A5-T4C">
+                        <rect key="frame" x="0.0" y="0.0" width="293" height="158"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAP-TK-Fjj" customClass="CardView" customModule="PropertyHero" customModuleProvider="target">
+                                <rect key="frame" x="4" y="1" width="285" height="156"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FU5-XZ-Gw9">
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="156"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FU5-XZ-Gw9" secondAttribute="bottom" id="Kdw-50-FCC"/>
+                                    <constraint firstItem="FU5-XZ-Gw9" firstAttribute="top" secondItem="iAP-TK-Fjj" secondAttribute="top" id="c1J-SI-rOL"/>
+                                    <constraint firstAttribute="trailing" secondItem="FU5-XZ-Gw9" secondAttribute="trailing" id="eMy-Tk-Key"/>
+                                    <constraint firstItem="FU5-XZ-Gw9" firstAttribute="leading" secondItem="iAP-TK-Fjj" secondAttribute="leading" id="isF-11-OGa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" systemColor="systemGray4Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iAP-TK-Fjj" secondAttribute="trailing" constant="4" id="GhH-xL-OWv"/>
+                            <constraint firstItem="iAP-TK-Fjj" firstAttribute="top" secondItem="Oie-A5-T4C" secondAttribute="top" constant="1" id="Gop-Ai-wpz"/>
+                            <constraint firstAttribute="bottom" secondItem="iAP-TK-Fjj" secondAttribute="bottom" constant="1" id="ZNE-O0-syK"/>
+                            <constraint firstItem="iAP-TK-Fjj" firstAttribute="leading" secondItem="Oie-A5-T4C" secondAttribute="leading" constant="4" id="eii-pe-ifd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Oie-A5-T4C" secondAttribute="bottom" id="6hn-54-dF8"/>
+                <constraint firstItem="Oie-A5-T4C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PcH-GM-WUG"/>
+                <constraint firstAttribute="trailing" secondItem="Oie-A5-T4C" secondAttribute="trailing" id="Xo6-qe-27v"/>
+                <constraint firstItem="Oie-A5-T4C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Yfl-V4-wUn"/>
+            </constraints>
+            <size key="customSize" width="293" height="158"/>
+            <connections>
+                <outlet property="thumbnail" destination="FU5-XZ-Gw9" id="vbb-m5-ZZE"/>
+            </connections>
+            <point key="canvasLocation" x="286.25954198473283" y="26.760563380281692"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

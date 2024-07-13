@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="BYZ-38-t0r" customClass="SplashViewController" customModule="PropertyHero" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdY-LI-ucn">
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash" translatesAutoresizingMaskIntoConstraints="NO" id="lQ6-Z9-6SC">
+                                        <rect key="frame" x="111" y="287" width="192" height="192"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lQ6-Z9-6SC" secondAttribute="height" multiplier="1:1" id="co2-0r-U6G"/>
+                                            <constraint firstAttribute="width" constant="192" id="k44-eQ-tOc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="lQ6-Z9-6SC" firstAttribute="centerY" secondItem="wdY-LI-ucn" secondAttribute="centerY" constant="-24" id="4Nr-eB-fQG"/>
+                                    <constraint firstItem="lQ6-Z9-6SC" firstAttribute="centerX" secondItem="wdY-LI-ucn" secondAttribute="centerX" id="O4W-x1-gHF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="wdY-LI-ucn" secondAttribute="top" id="MKH-UP-OeX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="wdY-LI-ucn" secondAttribute="leading" id="SAf-rE-fBf"/>
+                            <constraint firstItem="wdY-LI-ucn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eMr-Qp-FtM"/>
+                            <constraint firstItem="wdY-LI-ucn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="w8B-kL-XpS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="75.669642857142847"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <resources>
+        <image name="ic_splash" width="90" height="90"/>
+    </resources>
+</document>

@@ -1,0 +1,9 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 128"
+    id="vector">
+    <path
+        id="path"
+        d="M 0 0 L 128 0 L 128 128 L 0 128 Z"
+        fill="#eceff1"/>
+</svg>
