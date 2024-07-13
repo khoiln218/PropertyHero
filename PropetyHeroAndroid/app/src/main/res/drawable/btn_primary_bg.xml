@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <corners android:radius="6dp" />
-
     <item android:state_enabled="false">
         <layer-list>
             <item>
-                <color android:color="@color/colorButtonEnable" />
+                <shape>
+                    <solid android:color="@color/colorButtonEnable" />
+                    <corners android:radius="6dp" />
+                </shape>
             </item>
         </layer-list>
     </item>
 
     <item android:state_pressed="true">
-        <color android:color="@color/colorButtonPrimaryPressed" />
+
+        <shape>
+            <solid android:color="@color/colorButtonPrimaryPressed" />
+            <corners android:radius="6dp" />
+        </shape>
     </item>
     <item android:state_pressed="false">
-        <color android:color="@color/colorAccent" />
+        <shape>
+            <solid android:color="@color/colorAccent" />
+            <corners android:radius="6dp" />
+        </shape>
     </item>
 </selector>

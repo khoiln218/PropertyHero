@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HelloRentAndroid.iml" filepath="$PROJECT_DIR$/HelloRentAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HelloRentAndroid.app.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/HelloRentAndroid.ucrop.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PropetyHeroAndroid.iml" filepath="$PROJECT_DIR$/.idea/modules/PropetyHeroAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PropetyHeroAndroid.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/PropetyHeroAndroid.ucrop.unitTest.iml" />
     </modules>
   </component>
 </project>

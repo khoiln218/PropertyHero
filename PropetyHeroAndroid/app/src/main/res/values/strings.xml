@@ -378,4 +378,5 @@
 
     </string>
     <string name="gps_perm_description">Ứng dụng cần sử dụng GPS để xác định vị trí</string>
+    <string name="signup_title">Bạn chưa có tài khoản?</string>
 </resources>

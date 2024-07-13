@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,7 +42,6 @@ public class MemberRegistrationActivity extends AppCompatActivity implements Vie
 
     private TextInputLayout inputLayoutUserName, inputLayoutPassword, inputLayoutConfirm, inputLayoutFullName, inputLayoutPhone;
     private EditText inputUserName, inputPassword, inputConfirm, inputFullName, inputPhone;
-    private CheckBox chkTerms, chkPrivacy;
     private Button btnSubmit;
 
     private ProgressDialog progressDialog;
@@ -69,18 +67,9 @@ public class MemberRegistrationActivity extends AppCompatActivity implements Vie
         inputLayoutPhone = (TextInputLayout) findViewById(R.id.inputLayoutPhoneMemberReg);
         inputPhone = (EditText) findViewById(R.id.inputPhoneMemberReg);
 
-        chkTerms = (CheckBox) findViewById(R.id.chkTermsMember);
-        chkPrivacy = (CheckBox) findViewById(R.id.chkPrivacyMember);
         btnSubmit = (Button) findViewById(R.id.btnSubmitMemberReg);
 
-        chkTerms.setOnClickListener(this);
-        chkPrivacy.setOnClickListener(this);
         btnSubmit.setOnClickListener(this);
-
-        findViewById(R.id.tvTermsMember).setOnClickListener(this);
-        findViewById(R.id.tvPrivacyMember).setOnClickListener(this);
-
-        enabledSubmit();
 
         com.gomicorp.helper.Utils.hideSoftKeyboard(this, findViewById(R.id.memberRegistration));
 
@@ -98,31 +87,9 @@ public class MemberRegistrationActivity extends AppCompatActivity implements Vie
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.chkTermsMember:
-                enabledSubmit();
-                break;
-            case R.id.chkPrivacyMember:
-                enabledSubmit();
-                break;
-            case R.id.tvTermsMember:
-                launchWebView(Config.INFO_TERMS);
-                break;
-            case R.id.tvPrivacyMember:
-                launchWebView(Config.INFO_PRIVACY);
-                break;
-            case R.id.btnSubmitMemberReg:
-                submitRegister();
-            default:
-                break;
+        if (v.getId() == R.id.btnSubmitMemberReg) {
+            submitRegister();
         }
-    }
-
-    private void enabledSubmit() {
-        if (chkTerms.isChecked() && chkPrivacy.isChecked())
-            btnSubmit.setEnabled(true);
-        else
-            btnSubmit.setEnabled(false);
     }
 
     private void launchWebView(int index) {

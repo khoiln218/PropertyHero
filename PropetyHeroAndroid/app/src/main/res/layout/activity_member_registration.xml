@@ -43,13 +43,17 @@
                     android:id="@+id/inputLayoutUserNameMemberReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin">
+                    android:layout_marginTop="@dimen/layout_margin"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp">
 
                     <EditText
                         android:id="@+id/inputUserNameMemberReg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/border_input"
                         android:hint="@string/text_hint_user_name"
                         android:inputType="textEmailAddress"
                         android:padding="@dimen/layout_margin"
@@ -61,13 +65,17 @@
                     android:id="@+id/inputLayoutPasswordMemberReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin_quarter">
+                    android:layout_marginTop="@dimen/layout_margin_quarter"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp">
 
                     <EditText
                         android:id="@+id/inputPasswordMemberReg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/border_input"
                         android:hint="@string/text_hint_password"
                         android:inputType="textPassword"
                         android:padding="@dimen/layout_margin"
@@ -79,13 +87,17 @@
                     android:id="@+id/inputLayoutConfirmMemberReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin_quarter">
+                    android:layout_marginTop="@dimen/layout_margin_quarter"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp">
 
                     <EditText
                         android:id="@+id/inputConfirmMemberReg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/border_input"
                         android:hint="@string/text_hint_confirm_pwd"
                         android:inputType="textPassword"
                         android:padding="@dimen/layout_margin"
@@ -97,13 +109,17 @@
                     android:id="@+id/inputLayoutFullNameMemberReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin_quarter">
+                    android:layout_marginTop="@dimen/layout_margin_quarter"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp">
 
                     <EditText
                         android:id="@+id/inputFullNameMemberReg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/border_input"
                         android:hint="@string/text_hint_full_name"
                         android:inputType="textCapWords"
                         android:padding="@dimen/layout_margin"
@@ -115,13 +131,17 @@
                     android:id="@+id/inputLayoutPhoneMemberReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin_quarter">
+                    android:layout_marginTop="@dimen/layout_margin_quarter"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp">
 
                     <EditText
                         android:id="@+id/inputPhoneMemberReg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/border_input"
                         android:hint="@string/text_hint_phone"
                         android:inputType="phone"
                         android:padding="@dimen/layout_margin"
@@ -131,85 +151,27 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <include
+                layout="@layout/layout_divider_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="1dp"
+                android:layout_above="@id/footer" />
+
+            <LinearLayout
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_alignParentBottom="true"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical">
-
-                <include
-                    layout="@layout/layout_divider_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/layout_margin"
-                    android:layout_marginBottom="@dimen/layout_margin" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/layout_margin"
-                    android:text="@string/text_reg_note"
-                    android:textSize="@dimen/text_size_primary" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/layout_margin_half">
-
-                    <TextView
-                        android:id="@+id/tvTermsMember"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/layout_margin"
-                        android:layout_toStartOf="@+id/chkTermsMember"
-                        android:text="@string/text_terms"
-                        android:textColor="@color/colorLinkText"
-                        android:textSize="@dimen/text_size_secondary" />
-
-                    <CheckBox
-                        android:id="@+id/chkTermsMember"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:paddingLeft="@dimen/title_margin" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/layout_margin_half"
-                    android:layout_marginBottom="@dimen/layout_margin_half">
-
-                    <TextView
-                        android:id="@+id/tvPrivacyMember"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/layout_margin"
-                        android:layout_toStartOf="@+id/chkPrivacyMember"
-                        android:text="@string/text_privacy"
-                        android:textColor="@color/colorLinkText"
-                        android:textSize="@dimen/text_size_secondary" />
-
-                    <CheckBox
-                        android:id="@+id/chkPrivacyMember"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:paddingStart="@dimen/title_margin" />
-                </RelativeLayout>
 
                 <Button
                     android:id="@+id/btnSubmitMemberReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/layout_margin"
+                    android:layout_marginHorizontal="@dimen/layout_margin"
+                    android:layout_marginBottom="@dimen/layout_margin_double"
                     android:background="@drawable/btn_primary_bg"
-                    android:enabled="false"
                     android:text="@string/text_register"
                     android:textColor="@android:color/white" />
             </LinearLayout>

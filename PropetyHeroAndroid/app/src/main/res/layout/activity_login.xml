@@ -129,17 +129,16 @@
         <LinearLayout
             android:id="@+id/footer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_alignParentBottom="true"
             android:orientation="vertical"
-            android:paddingTop="16dp"
-            android:paddingBottom="32dp">
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Bạn chưa có tài khoản?" />
+                android:text="@string/signup_title" />
 
             <Button
                 android:id="@+id/btnMemberRegistration"
