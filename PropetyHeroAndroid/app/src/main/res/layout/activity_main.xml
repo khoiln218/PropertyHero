@@ -11,22 +11,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.gomicorp.ui.NonSwipeableViewPager
+            android:id="@+id/pagerMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabMain"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:tabBackground="@drawable/tab_background"
             app:tabGravity="fill"
             app:tabIndicatorHeight="0dp"
             app:tabMode="fixed" />
-
-        <com.gomicorp.ui.NonSwipeableViewPager
-            android:id="@+id/pagerMain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

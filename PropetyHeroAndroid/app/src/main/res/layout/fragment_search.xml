@@ -8,19 +8,18 @@
         android:id="@+id/tabSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabBackground="@drawable/tab_white_bg"
+        app:tabBackground="@drawable/bg_primary_tab"
         app:tabGravity="fill"
         app:tabIndicatorHeight="0dp"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/colorPrimaryText"
+        app:tabSelectedTextColor="@android:color/white"
         app:tabTextAppearance="@style/AppTheme.TabTextStyleBold"
-        app:tabTextColor="@color/colorSecondaryText" />
+        app:tabTextColor="#2F2F2F" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pagerSearch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        app:layout_behavior="@+id/tabSearch" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

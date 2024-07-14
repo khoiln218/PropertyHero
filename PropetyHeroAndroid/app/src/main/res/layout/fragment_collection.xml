@@ -4,22 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pagerCollection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabCollection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorDivider"
+        app:tabBackground="@drawable/bg_primary_tab"
         app:tabGravity="fill"
         app:tabIndicatorHeight="0dp"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextColor="@color/colorSecondaryText" />
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextAppearance="@style/AppTheme.TabTextStyleBold"
+        app:tabTextColor="#2F2F2F" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pagerCollection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

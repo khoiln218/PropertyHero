@@ -27,6 +27,6 @@
     <dimen name="product_thumb_side">96dp</dimen>
     <dimen name="management_thumb_side">120dp</dimen>
 
-    <dimen name="input_height">36dp</dimen>
+    <dimen name="input_height">42dp</dimen>
     <dimen name="input_width">96dp</dimen>
 </resources>

@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private TypedArray tabIcons;
+    private TypedArray tabActiveIcons;
     private TabLayout tabMain;
     private NonSwipeableViewPager pagerMain;
     private ViewPagerAdapter pagerMainAdapter;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // TabLayout icons from resources
         tabIcons = getResources().obtainTypedArray(R.array.tab_icons);
+        tabActiveIcons = getResources().obtainTypedArray(R.array.tab_active_icons);
         setupViewPager();
         setupTabLayout();
 
@@ -97,11 +99,38 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 tabMain.setupWithViewPager(pagerMain);
                 // Add Tab Icons
-                for (int i = 0; i < tabIcons.length(); i++) {
+                tabMain.getTabAt(0).setIcon(tabActiveIcons.getResourceId(0, -1));
+                tabMain.getTabAt(0).setTag(0);
+                for (int i = 1; i < tabIcons.length(); i++) {
                     tabMain.getTabAt(i).setIcon(tabIcons.getResourceId(i, -1));
+                    tabMain.getTabAt(i).setTag(i);
                 }
             }
         });
+
+        tabMain.addOnTabSelectedListener(
+                new TabLayout.ViewPagerOnTabSelectedListener(pagerMain) {
+
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+                        super.onTabSelected(tab);
+                        if (tab.getTag() == null) return;
+                        tab.setIcon(tabActiveIcons.getResourceId((Integer) tab.getTag(), -1));
+                    }
+
+                    @Override
+                    public void onTabUnselected(TabLayout.Tab tab) {
+                        super.onTabUnselected(tab);
+                        if (tab.getTag() == null) return;
+                        tab.setIcon(tabIcons.getResourceId((Integer) tab.getTag(), -1));
+                    }
+
+                    @Override
+                    public void onTabReselected(TabLayout.Tab tab) {
+                        super.onTabReselected(tab);
+                    }
+                }
+        );
     }
 
     private void fetchNotify() {

@@ -1,60 +1,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/findAreaLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWindowBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/layout_margin_half">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/btnSelectProvince"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_height="@dimen/input_height"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:background="@drawable/border_layout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/vector_dropdown_corner" />
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/tvSelectProvince"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="@dimen/layout_margin_half"
+            android:paddingRight="@dimen/layout_margin_half"
+            android:singleLine="true"
+            android:text="@string/text_province"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_primary" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/inputKeyword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/input_height"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:background="@drawable/border_layout"
+        android:drawablePadding="@dimen/layout_margin_half"
+        android:gravity="center"
+        android:hint="@string/text_hint_find_marker"
+        android:imeOptions="actionSearch"
         android:paddingLeft="@dimen/layout_margin_quarter"
         android:paddingTop="@dimen/layout_margin_half"
         android:paddingRight="@dimen/layout_margin_quarter"
-        android:paddingBottom="@dimen/layout_margin_half">
-
-        <EditText
-            android:id="@+id/inputKeyword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:background="@drawable/border_layout"
-            android:drawableLeft="@drawable/vector_search"
-            android:drawablePadding="@dimen/layout_margin_half"
-            android:hint="@string/text_hint_find_marker"
-            android:imeOptions="actionSearch"
-            android:paddingLeft="@dimen/layout_margin_quarter"
-            android:paddingTop="@dimen/layout_margin_half"
-            android:paddingRight="@dimen/layout_margin_quarter"
-            android:paddingBottom="@dimen/layout_margin_half"
-            android:singleLine="true"
-            android:textColor="@color/colorSecondaryText"
-            android:textSize="@dimen/text_size_secondary" />
-
-        <TextView
-            android:id="@+id/tvSelectProvince"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/layout_margin_quarter"
-            android:layout_weight="3"
-            android:background="@drawable/border_layout"
-            android:gravity="center_horizontal"
-            android:paddingLeft="@dimen/layout_margin_quarter"
-            android:paddingTop="@dimen/layout_margin_half"
-            android:paddingRight="@dimen/layout_margin_quarter"
-            android:paddingBottom="@dimen/layout_margin_half"
-            android:singleLine="true"
-            android:textColor="@color/colorSecondaryText"
-            android:textSize="@dimen/text_size_secondary"
-            android:textStyle="bold"
-            tools:text="Quận Bình Thạnh" />
-    </LinearLayout>
+        android:paddingBottom="@dimen/layout_margin_half"
+        android:singleLine="true"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="@dimen/text_size_secondary" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="@dimen/layout_margin"
         android:id="@+id/recyclerFindArea"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

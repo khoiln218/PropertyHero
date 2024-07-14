@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/vector_dropdown_corner" />
@@ -32,8 +32,9 @@
             android:paddingRight="@dimen/layout_margin_half"
             android:singleLine="true"
             android:text="@string/text_province"
-            android:textColor="@color/colorSecondaryText"
-            android:textSize="@dimen/text_size_primary" />
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_primary"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <!--Select District-->
@@ -41,14 +42,15 @@
         android:id="@+id/btnSelectDistrict"
         android:layout_width="match_parent"
         android:layout_height="@dimen/input_height"
-        android:layout_marginTop="@dimen/layout_margin_double"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/border_layout"
         android:padding="1dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/vector_dropdown_corner" />
@@ -62,9 +64,12 @@
             android:paddingRight="@dimen/layout_margin_half"
             android:singleLine="true"
             android:text="@string/text_district"
-            android:textColor="@color/colorSecondaryText"
-            android:textSize="@dimen/text_size_primary" />
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_primary"
+            android:textStyle="bold" />
     </RelativeLayout>
+
+    <include layout="@layout/layout_divider_horizontal" />
 
     <Button
         android:id="@+id/btnLocationSearch"
