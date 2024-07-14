@@ -28,7 +28,9 @@ final class HomeViewController: UIViewController, Bindable {
     private var latlng: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: DefaultStorage().getLastLat(), longitude: DefaultStorage().getLastLng())
     
     private var locationChanged = PublishSubject<CLLocationCoordinate2D>()
-    private var selectedMarker = PublishSubject<Marker>()
+    private var selectedProduct = PublishSubject<Product>()
+    private var viewAllHot = PublishSubject<Void>()
+    private var selectedDistrict = PublishSubject<DistrictSuggest>()
     
     var sections = [Int: Any]()
     
@@ -62,7 +64,9 @@ final class HomeViewController: UIViewController, Bindable {
             $0.delegate = self
             $0.dataSource = self
             $0.register(cellType: HeaderCell.self)
-            $0.register(cellType: AreaSectionCell.self)
+            $0.register(cellType: HotPropertyCell.self)
+            $0.register(cellType: MiddlePageCell.self)
+            $0.register(cellType: DistrictAICell.self)
         }
         
         manager.delegate = self
@@ -73,7 +77,9 @@ final class HomeViewController: UIViewController, Bindable {
     func bindViewModel() {
         let input = HomeViewModel.Input(
             locationChanged: locationChanged.asDriverOnErrorJustComplete(),
-            markerSelected: selectedMarker.asDriverOnErrorJustComplete()
+            selectedProduct: selectedProduct.asDriverOnErrorJustComplete(),
+            viewAllHot: viewAllHot.asDriverOnErrorJustComplete(),
+            selectedDistrict: selectedDistrict.asDriverOnErrorJustComplete()
         )
         let output = viewModel.transform(input, disposeBag: disposeBag)
         
@@ -165,45 +171,37 @@ extension HomeViewController: UICollectionViewDataSource {
                     }
                 }
             }
-        } else {
-            let pageSectionMarker = sections[indexPath.row] as! PageSectionViewModel<Marker>
+        } else if let pageSectionProduct = sections[indexPath.row] as? PageSectionViewModel<Product> {
             return collectionView.dequeueReusableCell(
                 for: indexPath,
-                cellType: AreaSectionCell.self
+                cellType: HotPropertyCell.self
             )
             .then {
-                $0.bindViewModel(pageSectionMarker)
-                $0.selectMarker = { marker in
-                    self.onChooseDistance(marker)
+                $0.bindViewModel(pageSectionProduct)
+                $0.selectProduct = {[unowned self] product in
+                    self.selectedProduct.onNext(product)
                 }
-                $0.viewMore = { index in
-                    self.viewModel.navigator.toFindArea()
+                $0.viewMore = {[unowned self] _ in
+                    self.viewAllHot.onNext(())
                 }
             }
+        } else if let pageSectionProduct = sections[indexPath.row] as? PageSectionViewModel<DistrictSuggest> {
+            return collectionView.dequeueReusableCell(
+                for: indexPath,
+                cellType: DistrictAICell.self
+            )
+            .then {
+                $0.bindViewModel(pageSectionProduct)
+                $0.selectDistrict = {[unowned self] district in
+                    self.selectedDistrict.onNext(district)
+                }
+            }
+        }  else {
+            return collectionView.dequeueReusableCell(
+                for: indexPath,
+                cellType: MiddlePageCell.self
+            )
         }
-    }
-    
-    func onChooseDistance(_ marker: Marker) {
-        let alertViewController = UIAlertController(title: marker.Name, message: nil, preferredStyle: .alert)
-        let distanceOne = UIAlertAction(title: "Bán kính 1km", style: .default, handler: { (_) in
-            let newMarker = Marker(Id: marker.Id, Name: marker.Name, Latitude: marker.Latitude, Longitude: marker.Longitude, distance: 1.0)
-            self.selectedMarker.onNext(newMarker)
-        })
-        let distanceThree = UIAlertAction(title: "Bán kính 3km", style: .default) { (_) in
-            let newMarker = Marker(Id: marker.Id, Name: marker.Name, Latitude: marker.Latitude, Longitude: marker.Longitude, distance: 3.0)
-            self.selectedMarker.onNext(newMarker)
-        }
-        let distanceFive = UIAlertAction(title: "Bán kính 5km", style: .default) { (_) in
-            let newMarker = Marker(Id: marker.Id, Name: marker.Name, Latitude: marker.Latitude, Longitude: marker.Longitude, distance: 5.0)
-            self.selectedMarker.onNext(newMarker)
-        }
-        let cancel = UIAlertAction(title: "Hủy bỏ", style: .cancel) { (_) in
-        }
-        alertViewController.addAction(distanceOne)
-        alertViewController.addAction(distanceThree)
-        alertViewController.addAction(distanceFive)
-        alertViewController.addAction(cancel)
-        self.present(alertViewController, animated: true, completion: nil)
     }
 }
 
@@ -215,8 +213,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if sections[indexPath.row] is PageSectionViewModel<Banner> {
             return CGSize(width: Dimension.SCREEN_WIDTH, height: Dimension.HEADER_HEIGHT)
+        } else if sections[indexPath.row] is PageSectionViewModel<Product> {
+            return CGSize(width: Dimension.SCREEN_WIDTH, height: Dimension.HOT_HEIGHT*2 + 21 + 35 + 4*16)
+        } else if sections[indexPath.row] is PageSectionViewModel<DistrictSuggest> {
+            return CGSize(width: Dimension.SCREEN_WIDTH, height: 115 + 20 + 24)
         } else {
-            return CGSize(width: Dimension.SCREEN_WIDTH, height: Dimension.AREA_HEIGHT)
+            return CGSize(width: Dimension.SCREEN_WIDTH, height: 130 + 21 + 40)
         }
     }
     

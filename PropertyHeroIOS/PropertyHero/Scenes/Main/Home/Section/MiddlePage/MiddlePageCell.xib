@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MiddlePageCell" customModule="PropertyHero" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="321"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="321"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="365-Dr-wiv">
+                        <rect key="frame" x="0.0" y="0.0" width="411" height="321"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82Y-b1-yYR">
+                                <rect key="frame" x="0.0" y="0.0" width="411" height="129.66666666666666"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home" translatesAutoresizingMaskIntoConstraints="NO" id="5Cb-cO-TMN">
+                                        <rect key="frame" x="32.000000000000007" y="32.000000000000007" width="65.666666666666686" height="65.666666666666686"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5Cb-cO-TMN" secondAttribute="height" multiplier="1:1" id="sVE-rm-PNo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhận ngay thông tin về  bất động sản HOT! tại PHR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jey-rL-AX0">
+                                        <rect key="frame" x="129.66666666666663" y="44.666666666666671" width="249.33333333333337" height="40.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.86274509803921573" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Jey-rL-AX0" firstAttribute="centerY" secondItem="82Y-b1-yYR" secondAttribute="centerY" id="2MG-Pk-ZD1"/>
+                                    <constraint firstItem="5Cb-cO-TMN" firstAttribute="leading" secondItem="82Y-b1-yYR" secondAttribute="leading" constant="32" id="8c0-WG-1R4"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Cb-cO-TMN" secondAttribute="bottom" constant="32" id="FPj-sI-Dcz"/>
+                                    <constraint firstItem="5Cb-cO-TMN" firstAttribute="top" secondItem="82Y-b1-yYR" secondAttribute="top" constant="32" id="KDb-xa-PMJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jey-rL-AX0" secondAttribute="trailing" constant="32" id="S4V-0A-Zpw"/>
+                                    <constraint firstItem="Jey-rL-AX0" firstAttribute="leading" secondItem="5Cb-cO-TMN" secondAttribute="trailing" constant="32" id="iaz-2g-ggE"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHR đề xuất theo khu vực bằng AI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StD-N2-MaA">
+                                <rect key="frame" x="32" y="149.66666666666666" width="347" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="StD-N2-MaA" firstAttribute="leading" secondItem="365-Dr-wiv" secondAttribute="leading" constant="32" id="8LR-E7-G3G"/>
+                            <constraint firstAttribute="trailing" secondItem="82Y-b1-yYR" secondAttribute="trailing" id="8uJ-It-w39"/>
+                            <constraint firstItem="StD-N2-MaA" firstAttribute="top" secondItem="82Y-b1-yYR" secondAttribute="bottom" constant="20" id="Ep6-0g-Ics"/>
+                            <constraint firstItem="82Y-b1-yYR" firstAttribute="leading" secondItem="365-Dr-wiv" secondAttribute="leading" id="TfF-Fs-bIj"/>
+                            <constraint firstAttribute="trailing" secondItem="StD-N2-MaA" secondAttribute="trailing" constant="32" id="it8-tV-Hzo"/>
+                            <constraint firstItem="82Y-b1-yYR" firstAttribute="top" secondItem="365-Dr-wiv" secondAttribute="top" id="k3g-pc-M0S"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="365-Dr-wiv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="73S-Zv-lGu"/>
+                <constraint firstAttribute="bottom" secondItem="365-Dr-wiv" secondAttribute="bottom" id="ZI1-Bp-Oq3"/>
+                <constraint firstAttribute="trailing" secondItem="365-Dr-wiv" secondAttribute="trailing" id="jws-Bo-yR2"/>
+                <constraint firstItem="365-Dr-wiv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zvN-jm-6lB"/>
+            </constraints>
+            <size key="customSize" width="411" height="321"/>
+            <connections>
+                <outlet property="name" destination="Jey-rL-AX0" id="c2X-8q-WJw"/>
+                <outlet property="suggest" destination="StD-N2-MaA" id="ghB-wr-QKg"/>
+            </connections>
+            <point key="canvasLocation" x="405.34351145038164" y="82.74647887323944"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_home" width="65.5" height="65.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

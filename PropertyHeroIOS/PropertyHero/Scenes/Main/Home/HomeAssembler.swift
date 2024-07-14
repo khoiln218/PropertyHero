@@ -37,6 +37,6 @@ extension HomeAssembler where Self: DefaultAssembler {
     }
     
     func resolve() -> HomeUseCaseType {
-        return HomeUseCase(categoryGateway: resolve(), locationGateway: resolve())
+        return HomeUseCase(categoryGateway: resolve(), locationGateway: resolve(), productGateway: resolve())
     }
 }

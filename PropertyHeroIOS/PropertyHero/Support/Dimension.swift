@@ -25,12 +25,16 @@ struct Dimension {
     
     static var HEADER_HEIGHT: CGFloat {
         let width = Dimension.SCREEN_WIDTH
-        return width / 2 + 112 + 44
+        return width / 2 + 112 + 32
     }
     
-    static var AREA_HEIGHT: CGFloat {
-        let width = Dimension.SCREEN_WIDTH / 3 - 4
-        return width / 2 + 34 + 84
+    static var HOT_WIDTH: CGFloat {
+        return (Dimension.SCREEN_WIDTH - 32) / 2
+    }
+    
+    static var HOT_HEIGHT: CGFloat {
+        let width = Dimension.HOT_WIDTH * 3 / 4
+        return width + 24 + 82
     }
     
     static var AREA_ITEM_WIDTH: CGFloat {

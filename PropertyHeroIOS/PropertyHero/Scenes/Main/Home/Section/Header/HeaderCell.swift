@@ -15,6 +15,9 @@ class HeaderCell: PageCollectionCell {
     @IBOutlet weak var findAll: UIView!
     @IBOutlet weak var findApartment: UIView!
     @IBOutlet weak var findRoom: UIView!
+    @IBOutlet weak var boderRoom: UIView!
+    @IBOutlet weak var boderApartment: UIView!
+    @IBOutlet weak var boderAll: UIView!
     
     var selectBanner: ((_ banner: Banner) -> Void)?
     var selectOption: ((_ option: OptionChoice) -> Void)?
@@ -25,15 +28,18 @@ class HeaderCell: PageCollectionCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let colorDivider = UIColor(hex: "#ECEFF1")!
-        let borderWidth: CGFloat = 1
-        findAll.addBorders(edges: .top, color: colorDivider, width: borderWidth)
-        findAll.addBorders(edges: .bottom, color: colorDivider, width: borderWidth)
-        findAll.addBorders(edges: .left, color: colorDivider, width: borderWidth)
-        findApartment.addBorders(edges: .all, color: colorDivider, width: borderWidth)
-        findRoom.addBorders(edges: .top, color: colorDivider, width: borderWidth)
-        findRoom.addBorders(edges: .bottom, color: colorDivider, width: borderWidth)
-        findRoom.addBorders(edges: .right, color: colorDivider, width: borderWidth)
+        let cornerRadius:CGFloat = 8
+        let colorDivider = UIColor(hex: "#E1E1E1")!.cgColor
+        
+        boderRoom.layer.cornerRadius = cornerRadius
+        boderRoom.layer.borderWidth = 1
+        boderRoom.layer.borderColor = colorDivider
+        boderApartment.layer.cornerRadius = cornerRadius
+        boderApartment.layer.borderWidth = 1
+        boderApartment.layer.borderColor = colorDivider
+        boderAll.layer.cornerRadius = cornerRadius
+        boderAll.layer.borderWidth = 1
+        boderAll.layer.borderColor = colorDivider
         
         banners.slideshowInterval = 5.0
         banners.contentScaleMode = UIViewContentMode.scaleAspectFill

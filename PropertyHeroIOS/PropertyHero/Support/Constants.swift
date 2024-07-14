@@ -80,6 +80,10 @@ enum OptionChoice {
 
 enum SectionType {
     case banner
+    case hot
+    case middle
+    case hcm
+    case hn
     case findByArea
 }
 
