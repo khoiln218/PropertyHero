@@ -16,6 +16,7 @@ import FacebookCore
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let nav = UINavigationController()
     var assembler: Assembler = DefaultAssembler()
     var disposeBag = DisposeBag()
     
@@ -33,14 +34,69 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions: nil
         )
         
-        bindViewModel(window: window)
+        bindViewModel()
     }
     
-    private func bindViewModel(window: UIWindow) {
-        let vc: SplashViewController = assembler.resolve(window: window)
+    func bindViewModel() {
+        let homeVC:HomeViewController = assembler.resolve(navigationController: nav)
+        homeVC.tabBarItem.title = nil
+        if let image = UIImage(named: "ic_action_home")?.withRenderingMode(.alwaysOriginal) {
+            homeVC.tabBarItem.image = image
+        }
+        if let image = UIImage(named: "ic_action_home_active")?.withRenderingMode(.alwaysOriginal) {
+            homeVC.tabBarItem.selectedImage = image
+        }
+        homeVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
         
-        window.rootViewController = vc
-        window.makeKeyAndVisible()
+        let collectionVC:CollectionViewController = assembler.resolve(navigationController: nav)
+        collectionVC.tabBarItem.title = nil
+        if let image = UIImage(named: "ic_action_collection")?.withRenderingMode(.alwaysOriginal) {
+            collectionVC.tabBarItem.image = image
+        }
+        if let image = UIImage(named: "ic_action_collection_active")?.withRenderingMode(.alwaysOriginal) {
+            collectionVC.tabBarItem.selectedImage = image
+        }
+        collectionVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
+        
+        let searchVC:SearchViewController = assembler.resolve(navigationController: nav)
+        searchVC.tabBarItem.title = nil
+        if let image = UIImage(named: "ic_action_search")?.withRenderingMode(.alwaysOriginal) {
+            searchVC.tabBarItem.image = image
+        }
+        if let image = UIImage(named: "ic_action_search_active")?.withRenderingMode(.alwaysOriginal) {
+            searchVC.tabBarItem.selectedImage = image
+        }
+        searchVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
+        
+        let notificationVC:NotificationViewController = assembler.resolve(navigationController: nav)
+        notificationVC.tabBarItem.title = nil
+        if let image = UIImage(named: "ic_action_notification")?.withRenderingMode(.alwaysOriginal) {
+            notificationVC.tabBarItem.image = image
+        }
+        if let image = UIImage(named: "ic_action_notification_active")?.withRenderingMode(.alwaysOriginal) {
+            notificationVC.tabBarItem.selectedImage = image
+        }
+        notificationVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
+        
+        let personVC:MoreViewController = assembler.resolve(navigationController: nav)
+        personVC.tabBarItem.title = nil
+        if let image = UIImage(named: "ic_action_person")?.withRenderingMode(.alwaysOriginal) {
+            personVC.tabBarItem.image = image
+        }
+        if let image = UIImage(named: "ic_action_person_active")?.withRenderingMode(.alwaysOriginal) {
+            personVC.tabBarItem.selectedImage = image
+        }
+        personVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
+        
+        let tabbarController = UITabBarController()
+        tabbarController.delegate = self
+        tabbarController.viewControllers = [homeVC, searchVC, collectionVC, notificationVC, personVC]
+        
+        nav.viewControllers.removeAll()
+        nav.viewControllers.append(tabbarController)
+        
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
@@ -53,5 +109,26 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             )
         }
          return GIDSignIn.sharedInstance.handle(url)
+    }
+}
+
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController is CollectionViewController {
+            if !AccountStorage().isLogin() {
+                let loginVC:LoginViewController = assembler.resolve(navigationController: nav)
+                nav.pushViewController(loginVC, animated: true)
+                return false
+            }
+            return true
+        } else if viewController is NotificationViewController {
+            if !AccountStorage().isLogin() {
+                let loginVC:LoginViewController = assembler.resolve(navigationController: nav)
+                nav.pushViewController(loginVC, animated: true)
+                return false
+            }
+            return true
+        }
+        return true
     }
 }

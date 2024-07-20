@@ -46,6 +46,11 @@ final class HomeViewController: UIViewController, Bindable {
         manager.stopUpdatingLocation()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     deinit {
         logDeinit()
     }
@@ -68,6 +73,11 @@ final class HomeViewController: UIViewController, Bindable {
             $0.register(cellType: MiddlePageCell.self)
             $0.register(cellType: DistrictAICell.self)
         }
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.headerReferenceSize = CGSize.zero
+        }
+        collectionView.contentInset = UIEdgeInsets(top: -collectionView.contentInset.top, left: 0, bottom: 0, right: 0)
         
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest

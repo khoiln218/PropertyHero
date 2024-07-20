@@ -106,6 +106,8 @@ final class ProductDetailViewController: UIViewController, Bindable {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         titleLabel.textColor = .white
         self.navigationItem.titleView = titleLabel
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @objc func favoriteClick(sender: UIButton) {

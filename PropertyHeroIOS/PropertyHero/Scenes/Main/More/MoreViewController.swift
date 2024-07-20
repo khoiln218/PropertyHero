@@ -41,6 +41,11 @@ final class MoreViewController: UIViewController, Bindable {
         configView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     deinit {
         logDeinit()
     }

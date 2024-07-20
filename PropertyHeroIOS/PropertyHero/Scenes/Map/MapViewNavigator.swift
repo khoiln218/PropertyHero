@@ -32,20 +32,13 @@ struct MapViewNavigator: MapViewNavigatorType {
     
     func toSearchByMarker() {
         navigationController.popViewController(animated: false)
-        
-        let mainViewController: MainViewController? = navigationController.viewControllers.first(where:{ $0 is MainViewController}) as? MainViewController
-        if mainViewController == nil { return }
-        DispatchQueue.main.async {
-            mainViewController!.tabLayout.setIndex(index: 1, animated: false, scroll: false)
-            mainViewController!.viewModel.navigator.toTabMenu(mainViewController!, tab: .search)
+        var tab: UITabBarController?
+        for vc in navigationController.viewControllers {
+            if vc is UITabBarController {
+                tab = vc as? UITabBarController
+            }
         }
-        
-        let searchViewController: SearchViewController? = mainViewController!.children.first(where:{ $0 is SearchViewController}) as? SearchViewController
-        if searchViewController == nil { return }
-        DispatchQueue.main.async {
-            searchViewController!.tabLayout.setIndex(index: 1, animated: false, scroll: false)
-            searchViewController!.viewModel.navigator.toSearchMenu(searchViewController!, tab: .marker)
-        }
+        tab?.selectedIndex = 1
     }
     
     func toFilter() -> Driver<FilterChangedDelegate> {

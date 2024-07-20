@@ -62,6 +62,8 @@ final class MapViewViewController: UIViewController, Bindable {
         
         let rightBarButton = UIBarButtonItem(customView: filterBtn)
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     deinit {

@@ -42,6 +42,11 @@ final class CollectionViewController: UIViewController, Bindable {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     deinit {
         logDeinit()
     }
@@ -59,8 +64,10 @@ final class CollectionViewController: UIViewController, Bindable {
             $0.fixedMode = true
             $0.font = .boldSystemFont(ofSize: 14)
             $0.currentFont = .boldSystemFont(ofSize: 14)
-            $0.textColor = UIColor(hex: "#808080")!
-            $0.currentTextColor = UIColor(hex: "#2b50f6")!
+            $0.textColor = UIColor(hex: "#2F2F2F")!
+            $0.currentTextColor = UIColor(hex: "#ffffff")!
+            $0.backgroundBtnColor = UIColor(hex: "#D8DCFF")!
+            $0.currentBackgroundBtnColor = UIColor(hex: "#486BF6")!
         }
         
         var tabs = [(title: String?, image: UIImage?)]()

@@ -47,6 +47,8 @@ final class ProductListViewController: UIViewController, Bindable {
         
         let rightBarButton = UIBarButtonItem(customView: filterBtn)
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @objc func filterClick(_ sender: Any) {

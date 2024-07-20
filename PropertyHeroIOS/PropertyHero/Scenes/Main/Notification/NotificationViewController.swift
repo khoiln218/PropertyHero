@@ -35,6 +35,11 @@ final class NotificationViewController: UIViewController, Bindable {
         self.showCoomingSoon(self.container)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     deinit {
         logDeinit()
     }
