@@ -12,6 +12,7 @@ protocol MoreNavigatorType {
     func toProfile(_ account: Account)
     func toFeedback()
     func toSetting()
+    func toAbout()
 }
 
 struct MoreNavigator: MoreNavigatorType {
@@ -35,6 +36,11 @@ struct MoreNavigator: MoreNavigatorType {
     
     func toSetting() {
         let vc: SettingViewController = assembler.resolve(navigationController: navigationController)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toAbout() {
+        let vc: AboutViewController = assembler.resolve(navigationController: navigationController)
         navigationController.pushViewController(vc, animated: true)
     }
 }

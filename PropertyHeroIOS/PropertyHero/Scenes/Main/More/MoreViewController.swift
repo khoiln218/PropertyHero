@@ -22,10 +22,9 @@ final class MoreViewController: UIViewController, Bindable {
     @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var rating: UIView!
-    @IBOutlet weak var feedback: UIView!
-    @IBOutlet weak var myProduct: UIView!
-    @IBOutlet weak var setting: UIView!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var contactView: UIStackView!
+    @IBOutlet weak var ratingView: UIStackView!
     
     // MARK: - Properties
     
@@ -70,12 +69,6 @@ final class MoreViewController: UIViewController, Bindable {
                                                name: NSNotification.Name.infoChanged,
                                                object: nil)
         
-        self.account.addBorders(edges: [.bottom], color: UIColor(hex: "#ECEFF1")!, width: 1)
-        self.rating.addBorders(edges: [.top, .bottom], color: UIColor(hex: "#ECEFF1")!, width: 1)
-        self.feedback.addBorders(edges: [.bottom], color: UIColor(hex: "#ECEFF1")!, width: 1)
-        self.myProduct.addBorders(edges: [.top, .bottom], color: UIColor(hex: "#ECEFF1")!, width: 1)
-        self.setting.addBorders(edges: [.top,.bottom], color: UIColor(hex: "#ECEFF1")!, width: 1)
-        
         let isLogin = AccountStorage().isLogin()
         if isLogin {
             let account = AccountStorage().getAccount()
@@ -86,16 +79,19 @@ final class MoreViewController: UIViewController, Bindable {
         }
         
         self.account.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAccount(_:))))
-        self.rating.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onRating(_:))))
-        self.feedback.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFeedback(_:))))
-        self.myProduct.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onMyProduct(_:))))
-        self.setting.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSetting(_:))))
+        self.infoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAbout(_:))))
+        self.ratingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onRating(_:))))
+        self.contactView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFeedback(_:))))
         
         self.accountAvatar.layer.borderWidth = 1.0
         self.accountAvatar.layer.masksToBounds = false
         self.accountAvatar.layer.borderColor = UIColor.white.cgColor
         self.accountAvatar.layer.cornerRadius = accountAvatar.frame.size.width / 2
         self.accountAvatar.clipsToBounds = true
+    }
+    
+    @objc func onAbout(_ sender: UITapGestureRecognizer) {
+        self.viewModel.navigator.toAbout()
     }
     
     @objc func onAccount(_ sender: UITapGestureRecognizer) {
