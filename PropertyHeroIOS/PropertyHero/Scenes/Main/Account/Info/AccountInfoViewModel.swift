@@ -9,6 +9,7 @@ import MGArchitecture
 import RxSwift
 import RxCocoa
 import Dto
+import MGAPIService
 
 struct AccountInfoViewModel {
     let navigator: AccountInfoNavigatorType
@@ -19,6 +20,7 @@ struct AccountInfoViewModel {
 extension AccountInfoViewModel: ViewModel {
     struct Input {
         let trigger: Driver<Void>
+        let avatar: Driver<APIUploadData>
         let gender: Driver<Int>
         let fullname: Driver<String>
         let phoneNumber: Driver<String>
@@ -47,6 +49,17 @@ extension AccountInfoViewModel: ViewModel {
         
         let errorTracker = ErrorTracker()
         let activityIndicator = ActivityIndicator()
+        
+        input.avatar
+            .flatMapLatest { avatar -> Driver<Bool> in
+                let account = AccountStorage().getAccount()
+                return self.useCase.changeAvatar(account.Id, username: account.UserName, avatar: avatar)
+                    .trackError(errorTracker)
+                    .trackActivity(activityIndicator)
+                    .asDriverOnErrorJustComplete()
+            }
+            .drive(output.$isSuccessful)
+            .disposed(by: disposeBag)
         
         let account = input.trigger
             .flatMapLatest {

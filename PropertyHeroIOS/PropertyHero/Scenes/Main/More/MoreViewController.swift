@@ -81,6 +81,8 @@ final class MoreViewController: UIViewController, Bindable {
             accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
             fullname.text = account.FullName
             username.text = account.UserName
+        } else {
+            logOut.hidden()
         }
         
         self.account.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAccount(_:))))
@@ -128,7 +130,7 @@ final class MoreViewController: UIViewController, Bindable {
     @objc func onAccount(_ sender: UITapGestureRecognizer) {
         let isLogin = AccountStorage().isLogin()
         if isLogin {
-            self.viewModel.navigator.toProfile(AccountStorage().getAccount())
+            self.viewModel.navigator.toAccountInfo()
         } else {
             self.viewModel.navigator.toLogin()
         }

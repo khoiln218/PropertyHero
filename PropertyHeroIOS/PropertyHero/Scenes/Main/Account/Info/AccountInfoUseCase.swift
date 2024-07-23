@@ -8,8 +8,10 @@
 import RxSwift
 import Dto
 import ValidatedPropertyKit
+import MGAPIService
 
 protocol AccountInfoUseCaseType {
+    func changeAvatar(_ accountId: Int, username: String, avatar: APIUploadData) -> Observable<Bool>
     func accountInfo(_ accountId: Int) -> Observable<Account>
     func updateInfo(_ account: Account) -> Observable<Bool>
     func getProvinces() -> Observable<[Province]>
@@ -21,6 +23,10 @@ protocol AccountInfoUseCaseType {
 struct AccountInfoUseCase: AccountInfoUseCaseType, GetLocation, Login {
     var locationGateway: LocationGatewayType
     var loginGateway: LoginGatewayType
+    
+    func changeAvatar(_ accountId: Int, username: String, avatar: APIUploadData) -> Observable<Bool> {
+        loginGateway.changeAvatar(accountId, username: username, avatar: avatar)
+    }
     
     func accountInfo(_ accountId: Int) -> Observable<Account> {
         loginGateway.getInfo(accountId)
