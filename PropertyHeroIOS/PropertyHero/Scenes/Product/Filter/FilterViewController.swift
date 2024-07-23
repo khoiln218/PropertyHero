@@ -82,6 +82,8 @@ final class FilterViewController: UIViewController, Bindable {
         self.bed5.addBorders(edges: [.top, .bottom, .right], color: UIColor(hex: "#ECEFF1")!, width: 1)
         self.bedAny.addBorders(edges: [.all], color: UIColor(hex: "#ECEFF1")!, width: 1)
         self.bedAnyClicked(UIButton())
+    
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @objc func resetClick(_ sender: Any) {

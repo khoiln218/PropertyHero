@@ -228,9 +228,6 @@ final class ProductDetailViewController: UIViewController, Bindable {
                     if !self.product.FeatureList.isEmpty {
                         self.cell.append(.feature)
                     }
-                    if !self.relocations.isEmpty {
-                        self.cell.append(.ads)
-                    }
                     if !self.product.FurnitureList.isEmpty {
                         self.cell.append(.furniture)
                     }

@@ -40,8 +40,9 @@ final class FeedbackEmailViewController: UIViewController, Bindable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         removeBackButtonTitle()
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
     deinit {
         logDeinit()
     }

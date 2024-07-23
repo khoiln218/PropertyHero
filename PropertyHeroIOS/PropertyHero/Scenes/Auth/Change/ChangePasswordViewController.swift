@@ -36,6 +36,13 @@ final class ChangePasswordViewController: UIViewController, Bindable {
         configView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        removeBackButtonTitle()
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     deinit {
         logDeinit()
     }
