@@ -1118,15 +1118,32 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld1-HI-OqA">
+                                        <rect key="frame" x="16" y="701" width="361" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="nK0-cb-JkE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Đăng xuất">
+                                            <color key="titleColor" red="0.28235294117647058" green="0.41960784313725491" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSignOut:" destination="eOT-PA-6HH" eventType="touchUpInside" id="PXI-09-f9k"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RzW-6e-eL1" secondAttribute="trailing" id="065-m7-aTc"/>
                                     <constraint firstItem="RzW-6e-eL1" firstAttribute="leading" secondItem="8YL-P6-r10" secondAttribute="leading" id="4VX-qj-TRl"/>
                                     <constraint firstAttribute="trailing" secondItem="KD9-12-hLw" secondAttribute="trailing" id="Khc-E3-6Q6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ld1-HI-OqA" secondAttribute="bottom" constant="16" id="QUp-jD-Rba"/>
                                     <constraint firstItem="KD9-12-hLw" firstAttribute="top" secondItem="8YL-P6-r10" secondAttribute="top" id="Vq2-DI-ply"/>
+                                    <constraint firstItem="Ld1-HI-OqA" firstAttribute="leading" secondItem="8YL-P6-r10" secondAttribute="leading" constant="16" id="XPv-SD-lDX"/>
                                     <constraint firstItem="KD9-12-hLw" firstAttribute="leading" secondItem="8YL-P6-r10" secondAttribute="leading" id="XUX-P7-OAw"/>
                                     <constraint firstItem="RzW-6e-eL1" firstAttribute="top" secondItem="KD9-12-hLw" secondAttribute="bottom" id="ZIs-fs-1jg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ld1-HI-OqA" secondAttribute="trailing" constant="16" id="se2-dt-mVb"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1147,8 +1164,11 @@
                         <outlet property="container" destination="8YL-P6-r10" id="0jy-Zz-NE8"/>
                         <outlet property="fullname" destination="pQ0-xq-Pa6" id="FDe-dZ-ScQ"/>
                         <outlet property="infoView" destination="5ZZ-OZ-ecv" id="1D5-Fv-4SV"/>
+                        <outlet property="logOut" destination="Ld1-HI-OqA" id="MD8-N7-NrF"/>
                         <outlet property="loginLabel" destination="jvX-li-2li" id="oSq-7z-ZSU"/>
                         <outlet property="ratingView" destination="kdz-Wu-naV" id="cxz-at-Aym"/>
+                        <outlet property="telegramView" destination="OIQ-fF-7cZ" id="g1e-xR-9i4"/>
+                        <outlet property="twitterView" destination="Nyx-wE-q3k" id="uTM-BW-yTI"/>
                         <outlet property="username" destination="wRV-c2-yqu" id="11d-QS-ckb"/>
                     </connections>
                 </viewController>
@@ -1961,44 +1981,10 @@ Tính năng chính của ứng dụng Property Hero: 
                                                 <nil key="highlightedColor"/>
                                                 <string key="userLabel">Property Hero là ứng dụng điện thoại di động đầu tiên tại Việt Nam để “Tìm kiếm” và “Đăng tin” các địa điểm bất động sản cho thuê tại Việt Nam… Mọi thông tin đăng trên Property Hero đều được KIỂM TRA và XÁC NHẬN.         Với cách sắp xếp thông tin rõ ràng cụ thể, hình ảnh thực tế chính xác sẽ giúp bạn tìm địa điểm tốt nhất và ưng ý nhất.         Tính năng chính của ứng dụng Property Hero:          * THÔNG TIN XÁC NHẬN         - Thông tin được đội ngũ kiểm định chất lượng (Checking Team) đảm bảo kiểm tra tận nơi xác nhận nội dung, hình ảnh thực tế.         - Thực trạng, và phản hồi về thông tin của tin đăng sẽ được hệ thống xử lý và có thể đội ngũ kiểm định chất lượng (Checking Team) sẽ đi kiểm tra ngay lập tức          * TÌM KIẾM ĐỊA ĐIỂM BẤT ĐỘNG SẢN PHÙ HỢP VỚI BẠN NHẤT         - Phân loại bất động sản Căn hộ Chung cư / Văn Phòng, Phòng trọ / Nhà trọ được hiển thị ngay vị trí đầu tiên         - Tìm kiếm các địa điểm xung quanh bạn hoặc các khu vực trung tâm         - Cung cấp các lựa chọn tìm kiếm theo giá thuê, diện tích…          * ĐĂNG TIN MỚI         - Cho phép người dùng đăng tin cho thuê bất động sản mới.</string>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jl5-Hz-QHA">
-                                                <rect key="frame" x="16" y="662.33333333333337" width="361" height="48"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Yvl-YJ-a9m">
-                                                        <rect key="frame" x="120.66666666666666" y="0.0" width="120" height="48"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vector_action_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="5qF-Kn-EKR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="5qF-Kn-EKR" secondAttribute="height" multiplier="1:1" id="PcR-AF-vXg"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vector_action_google" translatesAutoresizingMaskIntoConstraints="NO" id="0yj-eo-z5c">
-                                                                <rect key="frame" x="72" y="0.0" width="48" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="0yj-eo-z5c" secondAttribute="height" multiplier="1:1" id="sOV-uI-vZR"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="79M-uI-Psq"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="Yvl-YJ-a9m" firstAttribute="centerX" secondItem="jl5-Hz-QHA" secondAttribute="centerX" id="M5s-wP-n7d"/>
-                                                    <constraint firstAttribute="height" constant="48" id="usa-Eg-A8N"/>
-                                                    <constraint firstItem="Yvl-YJ-a9m" firstAttribute="centerY" secondItem="jl5-Hz-QHA" secondAttribute="centerY" id="zAF-ob-Hnf"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="jl5-Hz-QHA" firstAttribute="top" secondItem="XKk-1l-U7B" secondAttribute="bottom" constant="16" id="7D4-8n-wN1"/>
                                             <constraint firstItem="XKk-1l-U7B" firstAttribute="top" secondItem="1bf-Ft-dop" secondAttribute="top" constant="16" id="UJT-K7-wVq"/>
-                                            <constraint firstAttribute="trailing" secondItem="jl5-Hz-QHA" secondAttribute="trailing" constant="16" id="cla-9r-cGp"/>
-                                            <constraint firstItem="jl5-Hz-QHA" firstAttribute="leading" secondItem="1bf-Ft-dop" secondAttribute="leading" constant="16" id="ewC-ot-H3z"/>
                                             <constraint firstAttribute="trailing" secondItem="XKk-1l-U7B" secondAttribute="trailing" constant="16" id="ux0-ME-PWU"/>
                                             <constraint firstItem="XKk-1l-U7B" firstAttribute="leading" secondItem="1bf-Ft-dop" secondAttribute="leading" constant="16" id="zDd-eN-Wm1"/>
                                         </constraints>
@@ -2025,10 +2011,6 @@ Tính năng chính của ứng dụng Property Hero: 
                             <constraint firstItem="x05-4O-ScC" firstAttribute="bottom" secondItem="qBi-H2-b1Q" secondAttribute="bottom" id="utm-SF-xct"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="fbBtn" destination="5qF-Kn-EKR" id="I9B-zP-WjY"/>
-                        <outlet property="ggBtn" destination="0yj-eo-z5c" id="P6m-Qg-n1F"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMx-am-Vu5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2154,8 +2136,6 @@ Tính năng chính của ứng dụng Property Hero: 
         <image name="ic_vector_province" width="32" height="32"/>
         <image name="img_ss_tele" width="40" height="40"/>
         <image name="img_ss_x" width="40" height="40"/>
-        <image name="vector_action_facebook" width="478" height="478"/>
-        <image name="vector_action_google" width="471" height="471"/>
         <image name="vector_action_info" width="36" height="36"/>
         <image name="vector_action_login" width="36" height="36"/>
         <image name="vector_action_logout" width="36" height="36"/>

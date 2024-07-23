@@ -25,6 +25,9 @@ final class MoreViewController: UIViewController, Bindable {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var contactView: UIStackView!
     @IBOutlet weak var ratingView: UIStackView!
+    @IBOutlet weak var logOut: UIButton!
+    @IBOutlet weak var twitterView: UIStackView!
+    @IBOutlet weak var telegramView: UIStackView!
     
     // MARK: - Properties
     
@@ -74,12 +77,16 @@ final class MoreViewController: UIViewController, Bindable {
             let account = AccountStorage().getAccount()
             loginLabel.hidden()
             accountInfo.visible()
+            logOut.visible()
             accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
             fullname.text = account.FullName
+            username.text = account.UserName
         }
         
         self.account.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAccount(_:))))
         self.infoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAbout(_:))))
+        self.telegramView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTelegram(_:))))
+        self.twitterView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTwitter(_:))))
         self.ratingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onRating(_:))))
         self.contactView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFeedback(_:))))
         
@@ -88,10 +95,34 @@ final class MoreViewController: UIViewController, Bindable {
         self.accountAvatar.layer.borderColor = UIColor.white.cgColor
         self.accountAvatar.layer.cornerRadius = accountAvatar.frame.size.width / 2
         self.accountAvatar.clipsToBounds = true
+        
+        logOut.layer.borderWidth = 1.0
+        logOut.layer.borderColor = UIColor(hex: "#486BF6")?.cgColor
+        logOut.layer.cornerRadius = 5.0
+        logOut.clipsToBounds = true
+    }
+    
+    @IBAction func onSignOut(_ sender: Any) {
+        AccountStorage().logout()
+        NotificationCenter.default.post(
+            name: Notification.Name.logout,
+            object: nil)
     }
     
     @objc func onAbout(_ sender: UITapGestureRecognizer) {
         self.viewModel.navigator.toAbout()
+    }
+    
+    @objc func onTelegram(_ sender: UITapGestureRecognizer) {
+        if let url = URL(string: "https://t.me/propertyheroes") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc func onTwitter(_ sender: UITapGestureRecognizer) {
+        if let url = URL(string: "https://x.com/PHR_Hero") {
+            UIApplication.shared.open(url)
+        }
     }
     
     @objc func onAccount(_ sender: UITapGestureRecognizer) {
@@ -130,6 +161,7 @@ final class MoreViewController: UIViewController, Bindable {
         accountAvatar.image = UIImage(named: "vector_action_login")
         loginLabel.visible()
         accountInfo.hidden()
+        logOut.hidden()
     }
     
     @objc func updateAvatar(_ notification: NSNotification) {
@@ -150,8 +182,10 @@ final class MoreViewController: UIViewController, Bindable {
                 if let account = account {
                     loginLabel.hidden()
                     accountInfo.visible()
+                    logOut.visible()
                     accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
                     fullname.text = account.FullName
+                    username.text = account.UserName
                 }
             })
             .disposed(by: disposeBag)
@@ -164,8 +198,10 @@ final class MoreViewController: UIViewController, Bindable {
                 let account = userInfo["account"]!
                 loginLabel.hidden()
                 accountInfo.visible()
+                logOut.visible()
                 accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
                 fullname.text = account.FullName
+                username.text = account.UserName
             }
         }
     }
