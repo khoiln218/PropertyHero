@@ -193,7 +193,7 @@ final class ProductDetailViewController: UIViewController, Bindable {
         output.$productId
             .asDriver()
             .drive(onNext: { [unowned self] productId in
-                self.titleLabel.text = "Mã tin: \(productId)"
+                self.titleLabel.text = nil
             })
             .disposed(by: disposeBag)
         
