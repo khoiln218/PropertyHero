@@ -15,8 +15,6 @@ import Then
 final class AboutViewController: UIViewController, Bindable {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var fbBtn: UIImageView!
-    @IBOutlet weak var ggBtn: UIImageView!
     
     // MARK: - Properties
     
@@ -38,21 +36,6 @@ final class AboutViewController: UIViewController, Bindable {
     
     private func configView() {
         title = "Thông tin về Property Hero"
-        self.fbBtn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFacebook(_:))))
-        self.ggBtn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onGoogle(_:))))
-    }
-    
-    @objc func onFacebook(_ sender: UITapGestureRecognizer) {
-        UIApplication.tryURL(urls: [
-            "fb://page/hellorent.vn", // App
-            "https://www.facebook.com/hellorent.vn" // Website if app fails
-        ])
-    }
-    
-    @objc func onGoogle(_ sender: UITapGestureRecognizer) {
-        UIApplication.tryURL(urls: [
-            "https://plus.google.com/u/0/communities/114405969678787462416" // App
-        ])
     }
     
     func bindViewModel() {
