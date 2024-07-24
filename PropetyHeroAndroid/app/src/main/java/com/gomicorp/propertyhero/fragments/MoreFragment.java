@@ -22,11 +22,11 @@ import com.gomicorp.app.CircleTransform;
 import com.gomicorp.app.Config;
 import com.gomicorp.helper.L;
 import com.gomicorp.propertyhero.R;
+import com.gomicorp.propertyhero.activities.AboutActivity;
 import com.gomicorp.propertyhero.activities.AccountDetailsActivity;
 import com.gomicorp.propertyhero.activities.ContactActivity;
 import com.gomicorp.propertyhero.activities.LoginActivity;
-import com.gomicorp.propertyhero.activities.ManagementProductActivity;
-import com.gomicorp.propertyhero.activities.SettingsActivity;
+import com.gomicorp.propertyhero.activities.MainActivity;
 import com.gomicorp.propertyhero.callbacks.OnAccountRequestListener;
 import com.gomicorp.propertyhero.json.AccountRequest;
 import com.gomicorp.propertyhero.model.Account;
@@ -45,6 +45,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
 
     private ImageView imgAvatar;
     private TextView tvFullName, tvUserName;
+    private TextView logoutBtn;
     private RelativeLayout progressLayout;
 
     private Account account;
@@ -70,15 +71,16 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
         imgAvatar = (ImageView) root.findViewById(R.id.imgAvatar);
         tvFullName = (TextView) root.findViewById(R.id.tvFullName);
         tvUserName = (TextView) root.findViewById(R.id.tvUserName);
+        logoutBtn = root.findViewById(R.id.logoutBtn);
         progressLayout = (RelativeLayout) root.findViewById(R.id.progressLayout);
 
         root.findViewById(R.id.btnAccount).setOnClickListener(this);
-        root.findViewById(R.id.btnRating).setOnClickListener(this);
-        root.findViewById(R.id.btnContact).setOnClickListener(this);
-
-        root.findViewById(R.id.btnManagement).setVisibility(Config.DISABLE_CREATE ? View.GONE : View.VISIBLE);
-        root.findViewById(R.id.btnManagement).setOnClickListener(this);
-        root.findViewById(R.id.btnSettings).setOnClickListener(this);
+        root.findViewById(R.id.ratingBtn).setOnClickListener(this);
+        root.findViewById(R.id.emailBtn).setOnClickListener(this);
+        root.findViewById(R.id.telegramBtn).setOnClickListener(this);
+        root.findViewById(R.id.twitterBtn).setOnClickListener(this);
+        root.findViewById(R.id.btnAbout).setOnClickListener(this);
+        logoutBtn.setOnClickListener(this);
 
         return root;
     }
@@ -107,6 +109,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
     private void setupUI() {
         progressLayout.setVisibility(View.VISIBLE);
         tvFullName.setText(AppController.getInstance().getPrefManager().getFullName());
+        logoutBtn.setVisibility(View.VISIBLE);
         if (AppController.getInstance().getPrefManager().getUserID() != 0) {
             AccountRequest.getDetails(AppController.getInstance().getPrefManager().getUserID(), new OnAccountRequestListener() {
                 @Override
@@ -117,6 +120,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
                         AppController.getInstance().getPrefManager().addUserInfo(account.getId(), userName, account.getFullName(), account.getPhoneNumber(), account.getAccRole(), null);
                         tvFullName.setText(account.getFullName());
                         tvUserName.setVisibility(View.VISIBLE);
+                        tvUserName.setText(account.getUserName());
 
                         Picasso.with(getActivity())
                                 .load(account.getAvatar())
@@ -139,6 +143,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
             imgAvatar.setImageResource(R.drawable.vector_action_login);
             tvFullName.setText(getString(R.string.text_login));
             tvUserName.setVisibility(View.GONE);
+            logoutBtn.setVisibility(View.GONE);
             progressLayout.setVisibility(View.GONE);
         }
     }
@@ -157,26 +162,41 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
                 accDetails.putExtra(Config.DATA_EXTRA, bundle);
                 startActivity(accDetails);
             }
-        } else if (id == R.id.btnRating) {
+        } else if (id == R.id.ratingBtn) {
             final String appPackageName = requireActivity().getPackageName(); // getPackageName() from Context or Activity object
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
             } catch (ActivityNotFoundException ex) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
             }
-        } else if (id == R.id.btnContact) {
+        } else if (id == R.id.emailBtn) {
             startActivity(new Intent(getActivity(), ContactActivity.class));
-        } else if (id == R.id.btnManagement) {
-            if (AppController.getInstance().getPrefManager().getUserID() == 0) {
-                Intent intentLogin = new Intent(getActivity(), LoginActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString(Config.STRING_DATA, ManagementProductActivity.class.getSimpleName());
-                intentLogin.putExtra(Config.DATA_EXTRA, bundle);
-                startActivity(intentLogin);
-            } else
-                startActivity(new Intent(getActivity(), ManagementProductActivity.class));
-        } else if (id == R.id.btnSettings) {
-            startActivity(new Intent(getActivity(), SettingsActivity.class));
+        } else if (id == R.id.logoutBtn) {
+            String userName = AppController.getInstance().getPrefManager().getUserName();
+            AppController.getInstance().getPrefManager().Logout();
+            AppController.getInstance().getPrefManager().addUserName(userName);
+            Intent intent = new Intent(requireContext(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            requireActivity().finish();
+        } else if (id == R.id.telegramBtn) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://t.me/propertyheroes"));
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (id == R.id.twitterBtn) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://x.com/PHR_Hero"));
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (id == R.id.btnAbout) {
+            startActivity(new Intent(requireContext(), AboutActivity.class));
         }
     }
 }

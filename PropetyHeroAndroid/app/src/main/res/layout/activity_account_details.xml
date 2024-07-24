@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -50,133 +51,344 @@
                     app:srcCompat="@drawable/vector_action_photo" />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tvFullName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/title_margin"
-                android:gravity="center_horizontal"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/colorTitleText" />
-
-            <TextView
-                android:id="@+id/tvUserName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:singleLine="true"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/text_size_primary" />
-
             <LinearLayout
-                android:id="@+id/btnUserInfo"
+                android:layout_marginTop="@dimen/layout_margin_half"
+                android:id="@+id/layoutUpdateInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/title_margin_double"
-                android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginBottom="@dimen/layout_margin_half"
                     android:background="@android:color/white"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/title_margin">
+                    android:shrinkColumns="*">
 
-                    <ImageView
-                        android:layout_width="@dimen/ic_action_size"
-                        android:layout_height="@dimen/ic_action_size"
-                        android:layout_marginLeft="@dimen/title_margin"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/vector_action_info" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_margin"
-                        android:layout_weight="1"
-                        android:drawableRight="@drawable/vector_arrow_right"
-                        android:singleLine="true"
-                        android:text="@string/btn_user_info"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/colorTitleText" />
-                </LinearLayout>
-
-                <include layout="@layout/layout_divider_horizontal" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:id="@+id/btnChangePwd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
+                    <TableRow
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/title_margin">
-
-                        <ImageView
-                            android:layout_width="@dimen/ic_action_size"
-                            android:layout_height="@dimen/ic_action_size"
-                            android:layout_marginLeft="@dimen/title_margin"
-                            android:adjustViewBounds="true"
-                            android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/vector_action_pwd" />
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_full_name"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
+
+                        <EditText
+                            android:id="@+id/inputFullName"
+                            style="@style/AppTheme.InputBorder"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/layout_margin"
                             android:layout_weight="1"
-                            android:drawableRight="@drawable/vector_arrow_right"
-                            android:singleLine="true"
-                            android:text="@string/btn_change_pws"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/colorTitleText" />
-                    </LinearLayout>
+                            android:ems="10"
+                            android:hint="@string/text_hint_full_name"
+                            android:inputType="textCapWords"
+                            android:singleLine="true" />
+                    </TableRow>
 
-                    <include layout="@layout/layout_divider_horizontal" />
-                </LinearLayout>
+                    <TableRow
+                        android:layout_marginTop="@dimen/title_margin"
+                        android:layout_marginBottom="@dimen/title_margin">
 
-            </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
 
-            <LinearLayout
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/title_margin">
+                    <TableRow
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
 
-                <ImageView
-                    android:layout_width="@dimen/ic_action_size"
-                    android:layout_height="@dimen/ic_action_size"
-                    android:layout_marginLeft="@dimen/title_margin"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/vector_action_logout" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_gender"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
 
-                <TextView
+                        <RelativeLayout
+                            android:id="@+id/btnGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_layout"
+                            android:padding="1dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:adjustViewBounds="true"
+                                app:srcCompat="@drawable/vector_dropdown_corner" />
+
+                            <Spinner
+                                android:id="@+id/spnGender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="center_horizontal"
+                                android:padding="@dimen/title_margin_half" />
+                        </RelativeLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/title_margin"
+                        android:layout_marginBottom="@dimen/title_margin">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_birth_date"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
+
+                        <RelativeLayout
+                            android:id="@+id/btnBirthDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_layout"
+                            android:padding="1dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:adjustViewBounds="true"
+                                app:srcCompat="@drawable/vector_dropdown_corner" />
+
+                            <TextView
+                                android:id="@+id/tvBirthDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/title_margin_half"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryText"
+                                android:textSize="@dimen/text_size_secondary" />
+                        </RelativeLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/title_margin"
+                        android:layout_marginBottom="@dimen/title_margin">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_phone_num"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
+
+                        <EditText
+                            android:id="@+id/inputPhoneNumber"
+                            style="@style/AppTheme.InputBorder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="@string/text_hint_phone"
+                            android:inputType="phone"
+                            android:maxLength="15" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/title_margin"
+                        android:layout_marginBottom="@dimen/title_margin">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_address"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
+
+                        <EditText
+                            android:id="@+id/inputAddress"
+                            style="@style/AppTheme.InputBorder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="@string/text_hint_address"
+                            android:singleLine="true" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/title_margin"
+                        android:layout_marginBottom="@dimen/title_margin">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_province"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
+
+                        <RelativeLayout
+                            android:id="@+id/btnProvince"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_layout"
+                            android:padding="1dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:adjustViewBounds="true"
+                                app:srcCompat="@drawable/vector_dropdown_corner" />
+
+                            <TextView
+                                android:id="@+id/tvProvince"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/title_margin_half"
+                                android:singleLine="true"
+                                android:text="@string/text_province"
+                                android:textColor="@color/colorPrimaryText"
+                                android:textSize="@dimen/text_size_secondary" />
+                        </RelativeLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="@dimen/title_margin"
+                        android:layout_marginBottom="@dimen/title_margin">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingLeft="@dimen/title_margin"
+                        android:paddingRight="@dimen/title_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin"
+                            android:text="@string/text_hint_district"
+                            android:textColor="@color/colorTitleText"
+                            android:textSize="@dimen/text_size_primary" />
+
+                        <RelativeLayout
+                            android:id="@+id/btnDistrict"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_layout"
+                            android:padding="1dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:adjustViewBounds="true"
+                                app:srcCompat="@drawable/vector_dropdown_corner" />
+
+                            <TextView
+                                android:id="@+id/tvDistrict"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:padding="@dimen/title_margin_half"
+                                android:singleLine="true"
+                                android:text="@string/text_district"
+                                android:textColor="@color/colorPrimaryText"
+                                android:textSize="@dimen/text_size_secondary" />
+                        </RelativeLayout>
+                    </TableRow>
+
+                    <TableRow android:layout_marginTop="@dimen/title_margin">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorDivider" />
+                    </TableRow>
+                </TableLayout>
+
+                <Button
+                    android:id="@+id/btnSubmitUpdateInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_margin"
-                    android:layout_weight="1"
-                    android:singleLine="true"
-                    android:text="@string/btn_logout"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorTitleText" />
+                    android:layout_margin="@dimen/title_margin"
+                    android:background="@drawable/btn_primary_bg"
+                    android:text="@string/btn_update"
+                    android:textColor="@android:color/white" />
+
             </LinearLayout>
 
-            <include layout="@layout/layout_divider_horizontal" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <include layout="@layout/layout_progress" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

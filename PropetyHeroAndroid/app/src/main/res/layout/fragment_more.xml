@@ -7,7 +7,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:padding="@dimen/title_margin">
+                android:paddingHorizontal="@dimen/title_margin"
+                android:paddingVertical="@dimen/layout_margin_double">
 
                 <LinearLayout
                     android:id="@+id/btnAccount"
@@ -32,16 +34,15 @@
                         android:id="@+id/imgAvatar"
                         android:layout_width="@dimen/ic_avatar_size"
                         android:layout_height="@dimen/ic_avatar_size"
-                        android:layout_marginLeft="@dimen/title_margin"
+                        android:layout_marginStart="@dimen/title_margin_double"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/vector_action_login" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/layout_margin"
+                        android:layout_marginStart="@dimen/layout_margin"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -67,147 +68,293 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <include layout="@layout/layout_divider_horizontal" />
-
-            <!--Rating-->
-            <LinearLayout
-                android:id="@+id/btnRating"
+            <include
+                layout="@layout/layout_divider_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/title_margin">
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin" />
 
-                <ImageView
-                    android:layout_width="@dimen/ic_action_size"
-                    android:layout_height="@dimen/ic_action_size"
-                    android:layout_marginLeft="@dimen/title_margin"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/vector_action_rating" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_margin"
-                    android:layout_weight="1"
-                    android:drawableRight="@drawable/vector_arrow_right"
-                    android:singleLine="true"
-                    android:text="@string/btn_rating"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorTitleText" />
-            </LinearLayout>
-
-            <include layout="@layout/layout_divider_horizontal" />
-
-            <!--Contact-->
-            <LinearLayout
-                android:id="@+id/btnContact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/title_margin">
-
-                <ImageView
-                    android:layout_width="@dimen/ic_action_size"
-                    android:layout_height="@dimen/ic_action_size"
-                    android:layout_marginLeft="@dimen/title_margin"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/vector_action_contact" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_margin"
-                    android:layout_weight="1"
-                    android:drawableRight="@drawable/vector_arrow_right"
-                    android:singleLine="true"
-                    android:text="@string/btn_contact"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorTitleText" />
-            </LinearLayout>
-
-            <!--            <include layout="@layout/layout_divider_horizontal" />-->
-
-            <!--Management-->
-            <LinearLayout
-                android:id="@+id/btnManagement"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/title_margin"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/title_margin">
-
-                <ImageView
-                    android:layout_width="@dimen/ic_action_size"
-                    android:layout_height="@dimen/ic_action_size"
-                    android:layout_marginLeft="@dimen/title_margin"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/vector_action_management" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_margin"
-                    android:layout_weight="1"
-                    android:drawableRight="@drawable/vector_arrow_right"
-                    android:singleLine="true"
-                    android:text="@string/btn_management_product"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorTitleText" />
-            </LinearLayout>
-
-            <include layout="@layout/layout_divider_horizontal" />
-
-            <!--Settings-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="bottom"
                 android:orientation="vertical">
 
-                <include layout="@layout/layout_divider_horizontal" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin_half"
+                    android:layout_marginTop="@dimen/layout_margin_half"
+                    android:padding="@dimen/layout_margin_half"
+                    android:text="Cài đặt"
+                    android:textColor="#2f2f2f"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/btnSettings"
+
+                <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="@android:color/white"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/title_margin">
+                    android:shrinkColumns="*">
 
-                    <ImageView
-                        android:layout_width="@dimen/ic_action_size"
-                        android:layout_height="@dimen/ic_action_size"
-                        android:layout_marginLeft="@dimen/title_margin"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/vector_action_settings" />
+                    <TableRow
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/layout_margin">
 
-                    <TextView
-                        android:layout_width="match_parent"
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/title_margin"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/ic_vector_country" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/text_country"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/colorPrimaryText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/title_margin"
+                                android:layout_weight="1"
+                                android:drawableRight="@drawable/vector_arrow_right"
+                                android:drawablePadding="@dimen/title_margin_half"
+                                android:gravity="right"
+                                android:singleLine="true"
+                                android:text="Việt Nam"
+                                android:textColor="@color/colorSecondaryText"
+                                android:textSize="@dimen/text_size_primary" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/layout_margin">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/title_margin"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/ic_vector_language" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/text_language"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/colorPrimaryText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/title_margin"
+                                android:layout_weight="1"
+                                android:drawableRight="@drawable/vector_arrow_right"
+                                android:drawablePadding="@dimen/title_margin_half"
+                                android:gravity="right"
+                                android:singleLine="true"
+                                android:text="Tiếng việt"
+                                android:textColor="@color/colorSecondaryText"
+                                android:textSize="@dimen/text_size_primary" />
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+            <include
+                layout="@layout/layout_divider_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_half"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin_half"
+                    android:padding="@dimen/layout_margin_half"
+                    android:text="Mạng xã hội PHR"
+                    android:textColor="#2f2f2f"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin_half">
+
+                    <LinearLayout
+                        android:id="@+id/telegramBtn"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_margin"
-                        android:layout_weight="1"
-                        android:drawableRight="@drawable/vector_arrow_right"
-                        android:singleLine="true"
-                        android:text="@string/btn_setting"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/colorTitleText" />
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/img_ss_tele" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_half"
+                            android:text="Telegram" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/twitterBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/img_ss_x" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_half"
+                            android:text="X (Twitter)" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_double"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin_half"
+                    android:padding="@dimen/layout_margin_half"
+                    android:text="Góp ý"
+                    android:textColor="#2f2f2f"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin_half">
+
+                    <LinearLayout
+                        android:id="@+id/ratingBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_setting_rating" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_half"
+                            android:text="Đánh giá PHR" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/emailBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_setting_email" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_half"
+                            android:text="Email góp ý" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <include
+                layout="@layout/layout_divider_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin"
+                android:layout_marginTop="@dimen/layout_margin_double" />
+
+            <LinearLayout
+                android:id="@+id/btnAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_half"
+                android:background="@android:color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/layout_margin">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_vector_info" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/title_margin"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/title_margin_half"
+                    android:singleLine="true"
+                    android:text="@string/text_about"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryText"
+                    app:drawableRightCompat="@drawable/vector_arrow_right" />
+
+            </LinearLayout>
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/logoutBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="@dimen/layout_margin_quarter"
+            android:background="@drawable/outline_btn"
+            android:padding="@dimen/layout_margin"
+            android:text="Đăng xuất"
+            android:textAlignment="center"
+            android:textColor="#486BF6"
+            android:textStyle="bold" />
 
         <include
             layout="@layout/layout_progress"
