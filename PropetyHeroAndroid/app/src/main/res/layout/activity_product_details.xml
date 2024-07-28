@@ -55,6 +55,17 @@
                 android:orientation="vertical"
                 android:padding="@dimen/title_margin">
 
+                <TextView
+                    android:id="@+id/idProperty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline_btn"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Mã tin: 0112055158922"
+                    android:textColor="#486BF6"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,14 +105,11 @@
                     android:textSize="@dimen/text_size_primary" />
             </LinearLayout>
 
-            <include layout="@layout/layout_divider_horizontal" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:orientation="horizontal"
-                android:paddingTop="@dimen/layout_margin_half"
                 android:paddingBottom="@dimen/layout_margin_half">
 
                 <LinearLayout
@@ -115,17 +123,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:paddingTop="@dimen/layout_margin_half"
+                        android:paddingBottom="@dimen/layout_margin_quarter"
                         android:text="@string/text_area"
                         android:textAllCaps="true"
                         android:textSize="@dimen/text_size_primary" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom"
+                        android:layout_width="96dp"
+                        android:layout_height="72dp"
+                        android:background="@drawable/outline_detail"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="@dimen/layout_margin_quarter"
+                        android:paddingTop="@dimen/layout_margin_half"
                         android:paddingBottom="@dimen/layout_margin_half">
 
                         <TextView
@@ -144,10 +153,7 @@
                             android:textSize="@dimen/text_size_primary" />
                     </LinearLayout>
 
-
                 </LinearLayout>
-
-                <include layout="@layout/layout_divider_vertical" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -159,17 +165,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/layout_margin_half"
+                        android:paddingBottom="@dimen/layout_margin_quarter"
                         android:text="@string/text_floor"
                         android:textAllCaps="true"
                         android:textSize="@dimen/text_size_primary" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom"
+                        android:layout_width="96dp"
+                        android:layout_height="72dp"
+                        android:background="@drawable/outline_detail"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="@dimen/layout_margin_quarter"
+                        android:paddingTop="@dimen/layout_margin_half"
                         android:paddingBottom="@dimen/layout_margin_half">
 
                         <TextView
@@ -181,8 +188,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <include layout="@layout/layout_divider_vertical" />
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -193,17 +198,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/layout_margin_half"
+                        android:paddingBottom="@dimen/layout_margin_quarter"
                         android:text="@string/text_service_fee"
                         android:textAllCaps="true"
                         android:textSize="@dimen/text_size_primary" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom"
+                        android:layout_width="96dp"
+                        android:layout_height="72dp"
+                        android:background="@drawable/outline_detail"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="@dimen/layout_margin_quarter"
+                        android:paddingTop="@dimen/layout_margin_half"
                         android:paddingBottom="@dimen/layout_margin_half">
 
                         <TextView
@@ -225,7 +231,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <include layout="@layout/layout_divider_horizontal" />
             <!--Map & Address-->
             <LinearLayout
                 android:id="@+id/mapLayout"
@@ -712,26 +717,6 @@
                 <include layout="@layout/layout_divider_horizontal" />
             </LinearLayout>
 
-            <!--Advs Relocation-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/title_margin"
-                android:paddingTop="@dimen/layout_margin"
-                android:paddingRight="@dimen/title_margin"
-                android:paddingBottom="@dimen/title_margin"
-                android:text="@string/text_relocation"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/text_size_primary"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerRelocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:minHeight="?attr/actionBarSize" />
-
             <!--Furniture-->
             <LinearLayout
                 android:id="@+id/furnitureLayout"
@@ -788,41 +773,6 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/text_size_primary" />
-            </LinearLayout>
-
-            <include layout="@layout/layout_divider_horizontal" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/title_margin_double"
-                android:background="@android:color/white"
-                android:padding="@dimen/layout_margin">
-
-                <LinearLayout
-                    android:id="@+id/btnWarning"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_warning"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/title_margin">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/ic_drawable_warning" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_margin_half"
-                        android:text="@string/text_warning"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/colorErrorText" />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

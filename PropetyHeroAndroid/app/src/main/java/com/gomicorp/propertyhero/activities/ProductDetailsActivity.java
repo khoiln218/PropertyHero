@@ -17,15 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.widget.NestedScrollView;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.gomicorp.app.AppController;
 import com.gomicorp.app.Config;
 import com.gomicorp.helper.L;
@@ -33,16 +29,9 @@ import com.gomicorp.helper.Utils;
 import com.gomicorp.propertyhero.R;
 import com.gomicorp.propertyhero.adapters.FeatureRecyclerAdapter;
 import com.gomicorp.propertyhero.adapters.ImageSlideAdapter;
-import com.gomicorp.propertyhero.adapters.RelocationAdapter;
 import com.gomicorp.propertyhero.callbacks.OnLoadProductListener;
-import com.gomicorp.propertyhero.callbacks.OnRecyclerTouchListener;
 import com.gomicorp.propertyhero.callbacks.OnResponseListener;
-import com.gomicorp.propertyhero.callbacks.RecyclerTouchListner;
-import com.gomicorp.propertyhero.extras.EndPoints;
-import com.gomicorp.propertyhero.extras.UrlParams;
-import com.gomicorp.propertyhero.json.Parser;
 import com.gomicorp.propertyhero.json.ProductRequest;
-import com.gomicorp.propertyhero.model.Advertising;
 import com.gomicorp.propertyhero.model.Feature;
 import com.gomicorp.propertyhero.model.Product;
 import com.gomicorp.propertyhero.model.ResponseInfo;
@@ -52,8 +41,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,7 +58,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
     private RelativeLayout imageLayout;
     private ViewPager pagerImage;
     private LinearLayout mapLayout;
-    private TextView tvProperty, tvPrice, tvTitle, tvArea, tvFloor, tvServiceFee, tvAddress, tvPropertyInfo, tvDepositInfo, tvPriceInfo,
+    private TextView idProperty, tvProperty, tvPrice, tvTitle, tvArea, tvFloor, tvServiceFee, tvAddress, tvPropertyInfo, tvDepositInfo, tvPriceInfo,
             tvFloorInfo, tvFloorCount, tvGFArea, tvBedroom, tvBathroom, tvDirection, tvElevator, tvPet, tvNumPerson, tvContent, tvContactName, tvContactPhone, tvImage;
 
     private List<Feature> featureList;
@@ -81,12 +68,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
     private List<Feature> furnitureList;
     private FeatureRecyclerAdapter furnitureAdapter;
     private RecyclerView recyclerFurniture;
-
-    private List<Advertising> relocationList;
-    private RelocationAdapter relocationAdapter;
-    private RecyclerView recyclerRelocation;
-
-    private String title;
     private Menu menu;
 
     @Override
@@ -101,7 +82,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(title = getString(R.string.title_product));
+        getSupportActionBar().setTitle("");
 
 
         int height = (int) (Utils.getScreenWidth() / 1.5);
@@ -114,6 +95,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
 
         pagerImage = (ViewPager) findViewById(R.id.pagerImage);
 
+        idProperty = (TextView) findViewById(R.id.idProperty);
         tvProperty = (TextView) findViewById(R.id.tvProperty);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
@@ -141,7 +123,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
 
         setupRecyclerFeature();
         setupRecyclerFurniture();
-        setupRecyclerRelocation();
 
         WorkaroundMapFragment mapFragment = (WorkaroundMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapProductLocation);
         mapFragment.getMapAsync(this);
@@ -152,7 +133,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             }
         });
 
-        findViewById(R.id.btnWarning).setOnClickListener(this);
         findViewById(R.id.btnContact).setOnClickListener(this);
     }
 
@@ -208,9 +188,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnWarning:
-                launchWarning();
-                break;
             case R.id.btnContact:
                 if (phone != null) {
                     Intent callIntent = new Intent(Intent.ACTION_DIAL);
@@ -243,29 +220,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
         recyclerFurniture.setAdapter(furnitureAdapter);
     }
 
-    private void setupRecyclerRelocation() {
-        recyclerRelocation = (RecyclerView) findViewById(R.id.recyclerRelocation);
-        relocationList = new ArrayList<>();
-        relocationAdapter = new RelocationAdapter(relocationList);
-
-        recyclerRelocation.setHasFixedSize(true);
-        recyclerRelocation.setLayoutManager(new GridLayoutManager(this, 3));
-        recyclerRelocation.setAdapter(relocationAdapter);
-        recyclerRelocation.addOnItemTouchListener(new RecyclerTouchListner(this, recyclerRelocation, new OnRecyclerTouchListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Intent intent = new Intent(ProductDetailsActivity.this, AdvDetailsActivity.class);
-                intent.putExtra(Config.DATA_EXTRA, relocationList.get(position));
-                startActivity(intent);
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
-    }
-
     private void fetchProductDetails() {
         ProductRequest.getProduct(id, 0, new OnLoadProductListener() {
             @Override
@@ -293,10 +247,10 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             findViewById(R.id.progressLayout).setVisibility(View.GONE);
 
             this.phone = product.getContactPhone();
-            getSupportActionBar().setTitle(title.replace("...", String.valueOf(product.getId())));
             setupIsFavorite();
             setupSliderImage();
 
+            idProperty.setText(String.format(getString(R.string.title_product).replace("...", String.valueOf(product.getId()))));
             tvProperty.setText(product.getPropertyName());
             tvPrice.setText(String.valueOf(product.getPrice()));
             tvTitle.setText(product.getTitle());
@@ -359,34 +313,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             else
                 findViewById(R.id.furnitureLayout).setVisibility(View.GONE);
 
-            fetchRelocationData(product.getProvinceID());
         } else {
             Log.e(TAG, "updateUI: ");
         }
-    }
-
-    private void fetchRelocationData(int provinceID) {
-        relocationList.add(null);
-        relocationAdapter.setAdvertisingList(relocationList);
-
-        String url = EndPoints.URL_LIST_POWER_LINK
-                .replace(UrlParams.PROVINCE_ID, String.valueOf(provinceID));
-
-        JsonObjectRequest reqPower = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                relocationList.clear();
-                relocationList.addAll(Parser.advList(response));
-                relocationAdapter.setAdvertisingList(relocationList);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Error at fetchRelocationData()");
-            }
-        });
-
-        AppController.getInstance().addToRequestQueue(reqPower, TAG);
     }
 
     private void setupIsFavorite() {
