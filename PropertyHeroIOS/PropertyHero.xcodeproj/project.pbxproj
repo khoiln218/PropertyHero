@@ -285,9 +285,6 @@
 		6ED497FC2A866DDF004885A5 /* SearchByLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED497F72A866DDF004885A5 /* SearchByLocationViewModel.swift */; };
 		6EDECD882A97871E00A0D2FD /* MapProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDECD862A97871E00A0D2FD /* MapProductCell.swift */; };
 		6EDECD892A97871E00A0D2FD /* MapProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EDECD872A97871E00A0D2FD /* MapProductCell.xib */; };
-		6EFCB0372C4CBC9500591A5C /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB0342C4CBC9400591A5C /* CloseButton.swift */; };
-		6EFCB0382C4CBC9500591A5C /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB0352C4CBC9400591A5C /* TagView.swift */; };
-		6EFCB0392C4CBC9500591A5C /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCB0362C4CBC9400591A5C /* TagListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1646,7 +1643,6 @@
 				6EB8EB042A8445880055BEFD /* ProductGateway.swift in Sources */,
 				6E83AC132A9CF7BF00182A23 /* FeedbackEmailNavigator.swift in Sources */,
 				6EB743702A98F56800067B01 /* FilterAssembler.swift in Sources */,
-				6EFCB0372C4CBC9500591A5C /* CloseButton.swift in Sources */,
 				6E08B3292A7EAC8000C3EE35 /* Storyboards+Main.swift in Sources */,
 				6E83F43C2A7F6AF6002D9BD8 /* MoreNavigator.swift in Sources */,
 				6E14D6D42A88CA1E002E4900 /* AreaSectionCell.swift in Sources */,
@@ -1669,7 +1665,6 @@
 				6E83F43F2A7F6AF6002D9BD8 /* MoreViewModel.swift in Sources */,
 				6EA989E52AA574F100845439 /* Favorite.swift in Sources */,
 				6EBE4AE82A8906800005B23F /* ProductListAssembler.swift in Sources */,
-				6EFCB0392C4CBC9500591A5C /* TagListView.swift in Sources */,
 				6E01BAB22C437A1B005504C6 /* HotCell.swift in Sources */,
 				6EA8B06B2A9229590000EB42 /* Account.swift in Sources */,
 				6EC79BEC2AA0CE7100F4B2C7 /* AccountInfoViewController.swift in Sources */,
@@ -1793,7 +1788,6 @@
 				6EA8B0712A922D4A0000EB42 /* Login.swift in Sources */,
 				6E83AC212A9E1C1900182A23 /* ChangePasswordViewController.swift in Sources */,
 				6E83F4212A7F6AA4002D9BD8 /* SearchViewModel.swift in Sources */,
-				6EFCB0382C4CBC9500591A5C /* TagView.swift in Sources */,
 				6EBC24722A7EBCD500E58B2E /* UIView+.swift in Sources */,
 				6E01BAAD2C4376A7005504C6 /* HotPropertyCell.swift in Sources */,
 				6EB203872AA383A4009B965C /* ImageSliderNavigator.swift in Sources */,
@@ -1973,8 +1967,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PropertyHero/PropertyHero.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 3KXMVDL2D2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PropertyHero/Info.plist;
@@ -1991,9 +1986,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.propertyhero.app;
+				MARKETING_VERSION = 1.0.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gomicorp.propertyhero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2007,8 +2003,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PropertyHero/PropertyHero.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 3KXMVDL2D2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PropertyHero/Info.plist;
@@ -2025,9 +2022,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.propertyhero.app;
+				MARKETING_VERSION = 1.0.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gomicorp.propertyhero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

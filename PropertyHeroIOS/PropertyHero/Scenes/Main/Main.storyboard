@@ -2153,7 +2153,7 @@ Tính năng chính của ứng dụng Property Hero: 
     </scenes>
     <designables>
         <designable name="YKe-C3-ZKj">
-            <size key="intrinsicContentSize" width="234.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="208.33333333333334" height="34"/>
         </designable>
     </designables>
     <color key="tintColor" red="0.16862745100000001" green="0.31372549020000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
