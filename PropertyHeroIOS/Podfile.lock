@@ -50,6 +50,18 @@ PODS:
   - ImageSlideshow/SDWebImage (1.9.2):
     - ImageSlideshow/Core
     - SDWebImage (>= 3.7)
+  - libwebp (1.3.2):
+    - libwebp/demux (= 1.3.2)
+    - libwebp/mux (= 1.3.2)
+    - libwebp/sharpyuv (= 1.3.2)
+    - libwebp/webp (= 1.3.2)
+  - libwebp/demux (1.3.2):
+    - libwebp/webp
+  - libwebp/mux (1.3.2):
+    - libwebp/demux
+  - libwebp/sharpyuv (1.3.2)
+  - libwebp/webp (1.3.2):
+    - libwebp/sharpyuv
   - MBProgressHUD (1.2.0)
   - MGAPIService (3.0.0):
     - ObjectMapper (~> 4.2)
@@ -86,6 +98,9 @@ PODS:
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
+  - SDWebImageWebPCoder (0.6.1):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.7)
   - Then (2.7.0)
   - ValidatedPropertyKit (0.0.4)
 
@@ -107,6 +122,7 @@ DEPENDENCIES:
   - RSKImageCropper
   - RxViewController
   - SDWebImage (~> 5.8.3)
+  - SDWebImageWebPCoder
   - Then (~> 2.7)
 
 SPEC REPOS:
@@ -124,6 +140,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - ImageSlideshow
+    - libwebp
     - MBProgressHUD
     - MGAPIService
     - MGArchitecture
@@ -137,6 +154,7 @@ SPEC REPOS:
     - RxSwift
     - RxViewController
     - SDWebImage
+    - SDWebImageWebPCoder
     - Then
     - ValidatedPropertyKit
 
@@ -154,6 +172,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
   ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
+  libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MGAPIService: 83684387a742af98b944f5badfa566cc2e146318
   MGArchitecture: 122eacece9de8cbb3576af1329aa7c76118e47b7
@@ -167,9 +186,10 @@ SPEC CHECKSUMS:
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   RxViewController: 7330a46e5c31cd680db169da4c9fc8676e975a81
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
   ValidatedPropertyKit: 599b32854be66b3eea55c0ad7aa22c52cba4b997
 
-PODFILE CHECKSUM: 04a2abe70010e2f50054d78fbf1ebbe3ff797851
+PODFILE CHECKSUM: 54c2f7e3a961a0894259a237ebca2509d7aeab85
 
 COCOAPODS: 1.11.3
