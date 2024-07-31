@@ -27,9 +27,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AdR-jc-1NW">
-                                <rect key="frame" x="16" y="53" width="317" height="295"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AdR-jc-1NW">
+                                <rect key="frame" x="16" y="53" width="317" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="Ica-qO-zek"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gMQ-Jb-ZpV">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -38,7 +41,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cwp-ie-o1a">
-                                <rect key="frame" x="16" y="364" width="317" height="35"/>
+                                <rect key="frame" x="16" y="69" width="317" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Xem thêm các Bất Động Sản HOT"/>
                             </button>
@@ -46,7 +49,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Cwp-ie-o1a" secondAttribute="trailing" constant="16" id="07c-uh-1dG"/>
-                            <constraint firstAttribute="bottom" secondItem="Cwp-ie-o1a" secondAttribute="bottom" constant="16" id="7me-YS-FYk"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Cwp-ie-o1a" secondAttribute="bottom" constant="16" id="7me-YS-FYk"/>
                             <constraint firstAttribute="trailing" secondItem="AdR-jc-1NW" secondAttribute="trailing" constant="16" id="TvK-LR-DWd"/>
                             <constraint firstItem="AdR-jc-1NW" firstAttribute="leading" secondItem="6g6-nc-lXW" secondAttribute="leading" constant="16" id="UDS-ZF-MLa"/>
                             <constraint firstItem="KDT-cH-R5P" firstAttribute="leading" secondItem="6g6-nc-lXW" secondAttribute="leading" constant="16" id="WqS-Wq-nPk"/>
@@ -70,6 +73,7 @@
             <connections>
                 <outlet property="action" destination="Cwp-ie-o1a" id="4yH-UG-Uh0"/>
                 <outlet property="header" destination="KDT-cH-R5P" id="uM5-8s-MsQ"/>
+                <outlet property="heightConstrain" destination="Ica-qO-zek" id="p0Q-9T-sN0"/>
                 <outlet property="list" destination="AdR-jc-1NW" id="7hw-Tc-RAY"/>
             </connections>
             <point key="canvasLocation" x="358.01526717557249" y="115.84507042253522"/>

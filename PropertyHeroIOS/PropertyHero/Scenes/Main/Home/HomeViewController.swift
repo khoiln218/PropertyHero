@@ -224,7 +224,14 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if sections[indexPath.row] is PageSectionViewModel<Banner> {
             return CGSize(width: Dimension.SCREEN_WIDTH, height: Dimension.HEADER_HEIGHT)
         } else if sections[indexPath.row] is PageSectionViewModel<Product> {
-            return CGSize(width: Dimension.SCREEN_WIDTH, height: Dimension.HOT_HEIGHT*2 + 21 + 35 + 4*16)
+            let pageSectionProduct = sections[indexPath.row] as! PageSectionViewModel<Product>
+            var height = 0.0
+            if pageSectionProduct.items.count > 2 {
+                height = 2*Dimension.HOT_HEIGHT
+            } else if pageSectionProduct.items.count > 0 {
+                height = Dimension.HOT_HEIGHT
+            }
+            return CGSize(width: Dimension.SCREEN_WIDTH, height: height + 21 + 35 + 4*16)
         } else if sections[indexPath.row] is PageSectionViewModel<DistrictSuggest> {
             return CGSize(width: Dimension.SCREEN_WIDTH, height: 115 + 20 + 24)
         } else {

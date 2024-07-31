@@ -11,6 +11,7 @@ class HotPropertyCell: PageCollectionCell {
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var list: UICollectionView!
     @IBOutlet weak var action: UIButton!
+    @IBOutlet weak var heightConstrain: NSLayoutConstraint!
     
     var data: PageSectionViewModel<Product>?
     var selectProduct: ((_ product: Product) -> Void)?
@@ -45,6 +46,13 @@ class HotPropertyCell: PageCollectionCell {
     
     func bindViewModel(_ viewModel: PageSectionViewModel<Product>) {
         data = viewModel
+        var height = 0.0
+        if viewModel.items.count > 2 {
+            height = 2*Dimension.HOT_HEIGHT
+        } else if viewModel.items.count > 0 {
+            height = Dimension.HOT_HEIGHT
+        }
+        heightConstrain.constant = CGFloat(height)
         action.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onMore(_:))))
         action.isUserInteractionEnabled = true
         list.reloadData()
