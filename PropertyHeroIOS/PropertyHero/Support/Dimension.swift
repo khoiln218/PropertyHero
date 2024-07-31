@@ -25,7 +25,7 @@ struct Dimension {
     
     static var HEADER_HEIGHT: CGFloat {
         let width = Dimension.SCREEN_WIDTH
-        return width / 2 + 112 + 32
+        return width / 2 + 56 + 124 + 32
     }
     
     static var HOT_WIDTH: CGFloat {
