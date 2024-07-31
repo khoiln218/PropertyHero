@@ -80,7 +80,7 @@ final class MoreViewController: UIViewController, Bindable {
             logOut.visible()
             accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
             fullname.text = account.FullName
-            username.text = account.UserName
+            
         } else {
             logOut.hidden()
         }
@@ -187,7 +187,6 @@ final class MoreViewController: UIViewController, Bindable {
                     logOut.visible()
                     accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
                     fullname.text = account.FullName
-                    username.text = account.UserName
                 }
             })
             .disposed(by: disposeBag)
@@ -203,7 +202,6 @@ final class MoreViewController: UIViewController, Bindable {
                 logOut.visible()
                 accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
                 fullname.text = account.FullName
-                username.text = account.UserName
             }
         }
     }

@@ -120,7 +120,6 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
                         AppController.getInstance().getPrefManager().addUserInfo(account.getId(), userName, account.getFullName(), account.getPhoneNumber(), account.getAccRole(), null);
                         tvFullName.setText(account.getFullName());
                         tvUserName.setVisibility(View.VISIBLE);
-                        tvUserName.setText(account.getUserName());
 
                         Picasso.with(getActivity())
                                 .load(account.getAvatar())

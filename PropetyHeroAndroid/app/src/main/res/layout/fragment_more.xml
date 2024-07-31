@@ -19,8 +19,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin_half"
                 android:background="@android:color/white"
-                android:paddingHorizontal="@dimen/title_margin"
                 android:paddingVertical="@dimen/layout_margin_double">
 
                 <LinearLayout
@@ -34,7 +34,7 @@
                         android:id="@+id/imgAvatar"
                         android:layout_width="@dimen/ic_avatar_size"
                         android:layout_height="@dimen/ic_avatar_size"
-                        android:layout_marginStart="@dimen/title_margin_double"
+                        android:layout_marginStart="@dimen/layout_margin_half"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/vector_action_login" />
