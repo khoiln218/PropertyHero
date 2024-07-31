@@ -41,7 +41,10 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cwp-ie-o1a">
-                                <rect key="frame" x="16" y="69" width="317" height="34.333333333333343"/>
+                                <rect key="frame" x="16" y="69" width="317" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="DSp-Db-Bxs"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Xem thêm các Bất Động Sản HOT"/>
                             </button>

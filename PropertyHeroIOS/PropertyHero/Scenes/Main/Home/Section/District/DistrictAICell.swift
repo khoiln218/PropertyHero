@@ -40,8 +40,8 @@ class DistrictAICell: PageCollectionCell {
         if let layout = list.collectionViewLayout as? UICollectionViewFlowLayout {
             let spacing: CGFloat = 0
             
-            let itemWidth = 250
-            let itemHeight = 115
+            let itemWidth = 250 + 12
+            let itemHeight = 115 + 12
             
             layout.scrollDirection = .horizontal
             layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
