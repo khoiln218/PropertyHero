@@ -21,13 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="506" height="127"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9b-dR-PnK">
-                                <rect key="frame" x="8" y="8" width="112" height="84"/>
+                                <rect key="frame" x="8" y="8" width="112" height="112"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="n4z-F1-41i">
-                                        <rect key="frame" x="10" y="4" width="92" height="68"/>
+                                        <rect key="frame" x="10" y="4" width="92" height="96"/>
                                     </imageView>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Twu-KV-fNZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="112" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.96470588239999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Twu-KV-fNZ" secondAttribute="bottom" id="1ZO-Mx-gUY"/>
                                     <constraint firstAttribute="bottom" secondItem="n4z-F1-41i" secondAttribute="bottom" constant="12" id="6ba-Jw-DPp"/>
                                     <constraint firstItem="n4z-F1-41i" firstAttribute="top" secondItem="k9b-dR-PnK" secondAttribute="top" constant="4" id="Hhb-LR-iks"/>
-                                    <constraint firstAttribute="width" secondItem="k9b-dR-PnK" secondAttribute="height" multiplier="4:3" id="Hu6-Ao-1O5"/>
+                                    <constraint firstAttribute="width" secondItem="k9b-dR-PnK" secondAttribute="height" multiplier="1:1" id="Hu6-Ao-1O5"/>
                                     <constraint firstItem="n4z-F1-41i" firstAttribute="leading" secondItem="k9b-dR-PnK" secondAttribute="leading" constant="10" id="JhK-mp-6Wd"/>
                                     <constraint firstItem="Twu-KV-fNZ" firstAttribute="top" secondItem="k9b-dR-PnK" secondAttribute="top" id="gRW-lh-Jga"/>
                                     <constraint firstAttribute="trailing" secondItem="Twu-KV-fNZ" secondAttribute="trailing" id="gau-Pp-Udb"/>

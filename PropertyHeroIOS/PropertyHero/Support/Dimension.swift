@@ -33,7 +33,7 @@ struct Dimension {
     }
     
     static var HOT_HEIGHT: CGFloat {
-        let width = Dimension.HOT_WIDTH * 3 / 4
+        let width = Dimension.HOT_WIDTH
         return width + 24 + 82
     }
     

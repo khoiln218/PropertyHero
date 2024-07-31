@@ -22,19 +22,19 @@
                         <rect key="frame" x="8" y="8" width="329" height="473"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JXf-uK-6cx">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="246.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="329"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="JXf-uK-6cx" secondAttribute="height" multiplier="4:3" id="cWh-nd-ems"/>
+                                    <constraint firstAttribute="width" secondItem="JXf-uK-6cx" secondAttribute="height" multiplier="1:1" id="cWh-nd-ems"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="o91-lU-fOs">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="246.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="329"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="o91-lU-fOs" secondAttribute="height" multiplier="4:3" id="Nwu-Of-JRt"/>
+                                    <constraint firstAttribute="width" secondItem="o91-lU-fOs" secondAttribute="height" multiplier="1:1" id="Nwu-Of-JRt"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="UQA-1i-zqI">
-                                <rect key="frame" x="8" y="252.66666666666669" width="313" height="82"/>
+                                <rect key="frame" x="8" y="335" width="313" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Triệu / 30m2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm1-zj-Uog">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="19.333333333333332"/>
