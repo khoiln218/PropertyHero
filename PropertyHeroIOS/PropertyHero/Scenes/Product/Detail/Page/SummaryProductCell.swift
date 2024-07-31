@@ -52,12 +52,12 @@ class SummaryProductCell: PageTableCell {
     func bindViewModel(_ viewModel: Product) {
         labelId.text = "Mã tin: \(viewModel.Id)"
         
-        let priceText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.Price) + " ", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#2F2F2F")!])
+        let priceText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.Price.clean) + " ", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#2F2F2F")!])
         priceText.append(NSMutableAttributedString(string: "triệu / tháng", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor(hex: "#2F2F2F")!]))
         price.attributedText = priceText
         title.text = viewModel.Title
         
-        let gvText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.GrossFloorArea), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!])
+        let gvText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.GrossFloorArea.clean), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!])
         gvText.append(NSMutableAttributedString(string: " m\u{00B2}", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!]))
         gv.attributedText = gvText
         
