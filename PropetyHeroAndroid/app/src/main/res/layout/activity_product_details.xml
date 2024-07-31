@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -73,27 +74,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tvProperty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textColor="@color/colorTitleText" />
-
-                    <TextView
                         android:id="@+id/tvPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/title_margin_half"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="#2F2F2F" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin_quarter"
-                        android:text="@string/unit_price_month"
+                        android:text=" triệu / tháng"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="#2F2F2F" />
                 </LinearLayout>
 
                 <TextView
@@ -142,14 +135,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/colorLinkText" />
+                            android:textColor="#7F80EB" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/title_margin_half"
                             android:text="@string/unit_square"
-                            android:textColor="@color/colorLinkText"
+                            android:textColor="#7F80EB"
                             android:textSize="@dimen/text_size_primary" />
                     </LinearLayout>
 
@@ -183,8 +176,9 @@
                             android:id="@+id/tvFloor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="-"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/colorLinkText" />
+                            android:textColor="#7F80EB" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -217,7 +211,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/colorLinkText" />
+                            android:textColor="#7F80EB" />
 
                         <TextView
                             android:id="@+id/tvServiceFeeUnit"
@@ -225,7 +219,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/title_margin_half"
                             android:text="@string/unit_price_month"
-                            android:textColor="@color/colorLinkText"
+                            android:textColor="#7F80EB"
                             android:textSize="@dimen/text_size_primary" />
                     </LinearLayout>
                 </LinearLayout>
@@ -848,6 +842,8 @@
         </LinearLayout>
     </FrameLayout>
 
-    <include layout="@layout/layout_progress" />
+    <include
+        layout="@layout/layout_progress"
+        tools:visibility="gone" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

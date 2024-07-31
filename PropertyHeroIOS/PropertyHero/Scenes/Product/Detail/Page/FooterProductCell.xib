@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="KGk-i7-Jjw" customClass="FooterProductCell" customModule="PropertyHero" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="424" height="121"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="KGk-i7-Jjw" customClass="FooterProductCell" customModule="PropertyHero" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="424" height="114"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="424" height="121"/>
+                <rect key="frame" x="0.0" y="0.0" width="424" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fW7-bK-VLP">
-                        <rect key="frame" x="0.0" y="0.0" width="424" height="117.33333333333333"/>
+                        <rect key="frame" x="0.0" y="0.0" width="424" height="109.33333333333333"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHy-YW-TDK">
                                 <rect key="frame" x="0.0" y="0.0" width="424" height="59.333333333333336"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="wHy-YW-TDK" firstAttribute="top" secondItem="fW7-bK-VLP" secondAttribute="top" id="4oo-4G-yPZ"/>
                             <constraint firstItem="wHy-YW-TDK" firstAttribute="leading" secondItem="fW7-bK-VLP" secondAttribute="leading" id="Nyi-0s-Eej"/>
                             <constraint firstAttribute="trailing" secondItem="wJb-hf-M0f" secondAttribute="trailing" id="Rj1-YM-XUH"/>
-                            <constraint firstAttribute="bottom" secondItem="wJb-hf-M0f" secondAttribute="bottom" constant="8" id="W4u-TP-Mms"/>
+                            <constraint firstAttribute="bottom" secondItem="wJb-hf-M0f" secondAttribute="bottom" id="W4u-TP-Mms"/>
                             <constraint firstAttribute="trailing" secondItem="wHy-YW-TDK" secondAttribute="trailing" id="nMk-Su-mtO"/>
                             <constraint firstItem="wJb-hf-M0f" firstAttribute="leading" secondItem="fW7-bK-VLP" secondAttribute="leading" id="zbA-vW-cep"/>
                         </constraints>
@@ -86,7 +86,7 @@
             <connections>
                 <outlet property="desc" destination="dm8-J2-3OE" id="qlG-P1-6Wi"/>
             </connections>
-            <point key="canvasLocation" x="303.81679389312978" y="19.366197183098592"/>
+            <point key="canvasLocation" x="303.81679389312978" y="16.901408450704228"/>
         </tableViewCell>
     </objects>
     <resources>
