@@ -187,7 +187,7 @@
     <string name="text_hint_confirm_pwd">Nhập lại mật khẩu</string>
     <string name="text_err_confirm">Mật khẩu không khớp</string>
 
-    <string name="text_hint_full_name">Họ tên</string>
+    <string name="text_hint_full_name">Họ tên*</string>
     <string name="text_err_full_name">Vui lòng nhập họ tên</string>
 
     <string name="text_hint_email">Email</string>
@@ -201,7 +201,7 @@
     <string name="title_update_phone">Cập nhật Số điện thoại</string>
     <string name="msg_update_phone">Thành viên chưa có Số điện thoại liên hệ không thể đăng tin. Vui lòng cập nhật số điện thoại liên hệ</string>
     <string name="text_hint_phone">Số điện thoại liên hệ</string>
-    <string name="text_hint_phone_num">Số điện thoại</string>
+    <string name="text_hint_phone_num">Số điện thoại*</string>
     <string name="text_err_phone_empty">Vui lòng nhập số điện thoại</string>
     <string name="text_err_phone">Số điện thoại không đúng định dạng (03xxxxxxxx, 05xxxxxxxx, 07xxxxxxxx, 08xxxxxxxx, 09xxxxxxxx)</string>
 

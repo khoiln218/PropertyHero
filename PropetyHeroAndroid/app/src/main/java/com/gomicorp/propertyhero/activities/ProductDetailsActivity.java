@@ -58,7 +58,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
     private RelativeLayout imageLayout;
     private ViewPager pagerImage;
     private LinearLayout mapLayout;
-    private TextView idProperty, tvProperty, tvPrice, tvTitle, tvArea, tvFloor, tvServiceFee, tvAddress, tvPropertyInfo, tvDepositInfo, tvPriceInfo,
+    private TextView idProperty, tvPrice, tvTitle, tvArea, tvFloor, tvServiceFee, tvAddress, tvPropertyInfo, tvDepositInfo, tvPriceInfo,
             tvFloorInfo, tvFloorCount, tvGFArea, tvBedroom, tvBathroom, tvDirection, tvElevator, tvPet, tvNumPerson, tvContent, tvContactName, tvContactPhone, tvImage;
 
     private List<Feature> featureList;
@@ -96,7 +96,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
         pagerImage = (ViewPager) findViewById(R.id.pagerImage);
 
         idProperty = (TextView) findViewById(R.id.idProperty);
-        tvProperty = (TextView) findViewById(R.id.tvProperty);
         tvPrice = (TextView) findViewById(R.id.tvPrice);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvArea = (TextView) findViewById(R.id.tvArea);
@@ -251,7 +250,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             setupSliderImage();
 
             idProperty.setText(String.format(getString(R.string.title_product).replace("...", String.valueOf(product.getId()))));
-            tvProperty.setText(product.getPropertyName());
             tvPrice.setText(String.valueOf(product.getPrice()));
             tvTitle.setText(product.getTitle());
             tvArea.setText(String.valueOf(product.getGrossFloorArea()));
