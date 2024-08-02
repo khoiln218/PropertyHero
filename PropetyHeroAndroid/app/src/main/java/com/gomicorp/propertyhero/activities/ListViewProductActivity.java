@@ -76,9 +76,7 @@ public class ListViewProductActivity extends AppCompatActivity implements SwipeR
         refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshProduct);
         recyclerProduct = (RecyclerView) findViewById(R.id.recyclerProduct);
 
-        refreshLayout.setRefreshing(true);
         refreshLayout.setOnRefreshListener(this);
-
 
         recyclerProduct.setItemAnimator(new DefaultItemAnimator());
         recyclerProduct.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
