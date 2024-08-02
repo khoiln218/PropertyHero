@@ -119,15 +119,32 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func handleDeepLink(url: URL) -> Bool {
         print(url)
+        
+        let pathComponents = url.pathComponents
+        
+        if pathComponents.count > 1 {
+            let firstSegment = pathComponents[1]
+            switch firstSegment {
+            case "home":
+                navigateToHome()
+            case "profile":
+                navigateToProfile()
+            default:
+                print(firstSegment)
+                break
+            }
+        }
         return true
     }
-
+    
     func navigateToHome() {
         // Implementation for navigating to the home screen
+        print(#function)
     }
-
+    
     func navigateToProfile() {
         // Implementation for navigating to the profile screen
+        print(#function)
     }
 }
 

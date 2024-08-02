@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -62,6 +63,42 @@ public class MainActivity extends AppCompatActivity {
         setupTabLayout();
 
         fetchNotify();
+    }
+
+    private void handleDeepLink(Uri uri) {
+        // Parse the URI and take action based on its content
+        Log.e(TAG, "handleDeepLink: " + uri.toString());
+        String scheme = uri.getScheme(); // "yourapp"
+        String host = uri.getHost(); // "example.com"
+        List<String> pathSegments = uri.getPathSegments();
+
+        if ("propertyhero".equals(host)) {
+            // Handle deep link based on the path or query parameters
+            if (!pathSegments.isEmpty()) {
+                String firstSegment = pathSegments.get(0);
+                switch (firstSegment) {
+                    case "home":
+                        navigateToHome();
+                        break;
+                    case "profile":
+                        navigateToProfile();
+                        break;
+                    default:
+                        Log.e(TAG, "handleDeepLink: " + firstSegment);
+                        break;
+                }
+            }
+        }
+    }
+
+    private void navigateToHome() {
+        // Implementation for navigating to the home screen
+        Log.e(TAG, "navigateToHome");
+    }
+
+    private void navigateToProfile() {
+        // Implementation for navigating to the profile screen
+        Log.e(TAG, "navigateToProfile");
     }
 
     @Override

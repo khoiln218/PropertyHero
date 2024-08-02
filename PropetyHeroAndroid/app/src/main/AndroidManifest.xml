@@ -76,11 +76,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
-                <data android:scheme="https" />
-                <data android:scheme="http" />
-                <data android:scheme="propertyhero" />
-                <data android:host="propertyhero.io" />
             </intent-filter>
         </activity>
         <activity
@@ -92,6 +87,20 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="propertyhero.io"
+                    android:scheme="https"
+                    tools:ignore="IntentFilterUniqueDataAttributes" />
+                <data
+                    android:host="propertyhero.io"
+                    android:scheme="http"
+                    tools:ignore="IntentFilterUniqueDataAttributes" />
+                <data
+                    android:host="propertyhero.io"
+                    android:scheme="propertyhero"
+                    tools:ignore="IntentFilterUniqueDataAttributes" />
             </intent-filter>
         </activity>
         <activity
