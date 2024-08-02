@@ -182,10 +182,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/layout_margin_half"
                     android:layout_marginTop="@dimen/layout_margin_quarter"
-                    android:background="@drawable/outline_btn"
+                    android:background="@drawable/outline_gray_btn"
                     android:gravity="center"
                     android:padding="@dimen/layout_margin"
                     android:text="@string/hot_view_all"
+                    android:textColor="#2F2F2F"
                     android:textStyle="bold" />
             </LinearLayout>
 
