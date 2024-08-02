@@ -317,6 +317,7 @@
     <string name="text_map_bounds">Trong khu vực có</string>
     <string name="text_no_product">Không tìm thấy tin đăng trong khu vực này. vui lòng kiểm tra lại điều kiện tìm kiếm hoặc chuyển sang khu vực khác.</string>
     <string name="text_no_result">Chưa có dữ liệu</string>
+    <string name="text_no_notification">Chưa có thông báo</string>
 
     <string name="text_view_product">Xem thông tin</string>
     <string name="text_hint_view_product">Xem chi tiết thông tin</string>

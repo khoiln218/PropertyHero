@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,6 +8,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <include layout="@layout/layout_no_result" />
+    <RelativeLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F8FFEE"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/vector"
+            android:layout_width="145dp"
+            android:layout_height="103dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/img_notification" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vector"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/layout_margin_double"
+            android:background="@drawable/bg_notification_empty"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="10dp"
+            android:text="@string/text_no_notification"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size_primary"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 </FrameLayout>

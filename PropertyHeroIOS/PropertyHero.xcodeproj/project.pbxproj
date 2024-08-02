@@ -568,9 +568,6 @@
 		6ED497F72A866DDF004885A5 /* SearchByLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByLocationViewModel.swift; sourceTree = "<group>"; };
 		6EDECD862A97871E00A0D2FD /* MapProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProductCell.swift; sourceTree = "<group>"; };
 		6EDECD872A97871E00A0D2FD /* MapProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapProductCell.xib; sourceTree = "<group>"; };
-		6EFCB0342C4CBC9400591A5C /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
-		6EFCB0352C4CBC9400591A5C /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
-		6EFCB0362C4CBC9400591A5C /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		A984F581DE5D708779DAF076 /* Pods-PropertyHero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertyHero.debug.xcconfig"; path = "Target Support Files/Pods-PropertyHero/Pods-PropertyHero.debug.xcconfig"; sourceTree = "<group>"; };
 		E112FD19CC3546FD323A8D3D /* Pods_PropertyHero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PropertyHero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -878,7 +875,6 @@
 		6E83F4062A7F59C3002D9BD8 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				6EFCB0332C4CBC9400591A5C /* TagListView */,
 				6E14D6CD2A88ACA2002E4900 /* DesignableUITextField.swift */,
 				6E14D6C92A88AC82002E4900 /* CardView.swift */,
 				6E14D6CA2A88AC82002E4900 /* PageIndicator.swift */,
@@ -1395,17 +1391,6 @@
 				6ED497F72A866DDF004885A5 /* SearchByLocationViewModel.swift */,
 			);
 			path = Location;
-			sourceTree = "<group>";
-		};
-		6EFCB0332C4CBC9400591A5C /* TagListView */ = {
-			isa = PBXGroup;
-			children = (
-				6EFCB0342C4CBC9400591A5C /* CloseButton.swift */,
-				6EFCB0352C4CBC9400591A5C /* TagView.swift */,
-				6EFCB0362C4CBC9400591A5C /* TagListView.swift */,
-			);
-			name = TagListView;
-			path = Widget/TagListView;
 			sourceTree = "<group>";
 		};
 		9886FDF07277817AF264ADE7 /* Frameworks */ = {

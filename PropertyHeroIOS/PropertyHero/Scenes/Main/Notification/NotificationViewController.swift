@@ -16,6 +16,7 @@ final class NotificationViewController: UIViewController, Bindable {
     
     // MARK: - IBOutlets
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var message: UIView!
     
     // MARK: - Properties
     
@@ -31,8 +32,6 @@ final class NotificationViewController: UIViewController, Bindable {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.showCoomingSoon(self.container)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +53,8 @@ final class NotificationViewController: UIViewController, Bindable {
     // MARK: - Methods
     
     private func configView() {
-        
+        message.layer.cornerRadius = 6.0
+        message.clipsToBounds = true
     }
     
     func bindViewModel() {
