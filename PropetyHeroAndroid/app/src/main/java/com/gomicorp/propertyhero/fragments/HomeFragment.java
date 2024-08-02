@@ -200,7 +200,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         hcm.add(new DistrictSuggest(6, "Quận Bình Thạnh", R.drawable.q_bthanh, new LatLng(10.803239000, 106.696714500)));
         hcm.add(new DistrictSuggest(7, "Quận Gò Vấp", R.drawable.q_gvap, new LatLng(10.831512900, 106.669296700)));
         hcm.add(new DistrictSuggest(8, "Quận Phú Nhuận", R.drawable.q_pn, new LatLng(10.795046400, 106.676008200)));
-        hcm.add(new DistrictSuggest(9, "TP Thủ Đức", R.drawable.q_tduc, new LatLng(10.848243600, 106.772226000)));
+        hcm.add(new DistrictSuggest(9, "TP.Thủ Đức", R.drawable.q_tduc, new LatLng(10.848243600, 106.772226000)));
         return hcm;
     }
 

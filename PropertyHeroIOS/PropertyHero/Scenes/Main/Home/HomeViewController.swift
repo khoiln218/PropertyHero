@@ -233,9 +233,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             }
             return CGSize(width: Dimension.SCREEN_WIDTH, height: height + 21 + 48 + 4*16)
         } else if sections[indexPath.row] is PageSectionViewModel<DistrictSuggest> {
-            return CGSize(width: Dimension.SCREEN_WIDTH, height: 115 + 20 + 24)
+            return CGSize(width: Dimension.SCREEN_WIDTH, height: 120 + 12 + 20 + 24)
         } else {
-            return CGSize(width: Dimension.SCREEN_WIDTH, height: 130 + 21 + 40)
+            return CGSize(width: Dimension.SCREEN_WIDTH, height: 131 + 20)
         }
     }
     

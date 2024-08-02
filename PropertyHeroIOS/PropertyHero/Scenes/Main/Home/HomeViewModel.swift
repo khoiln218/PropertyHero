@@ -148,7 +148,7 @@ extension HomeViewModel: ViewModel {
         list.append(DistrictSuggest(Latitude: 10.803239000,Longitude: 106.696714500,ImgRes: "q_bthanh", Id: 6, Name: "Quận Bình Thạnh"))
         list.append(DistrictSuggest(Latitude: 10.831512900,Longitude: 106.669296700,ImgRes: "q_gvap", Id: 7, Name: "Quận Gò Vấp"))
         list.append(DistrictSuggest(Latitude: 10.795046400,Longitude: 106.676008200,ImgRes: "q_pn", Id: 8, Name: "Quận Phú Nhuận"))
-        list.append(DistrictSuggest(Latitude: 10.848243600,Longitude: 106.772226000,ImgRes: "q_tduc", Id: 9, Name: "Quận Thủ Đức"))
+        list.append(DistrictSuggest(Latitude: 10.848243600,Longitude: 106.772226000,ImgRes: "q_tduc", Id: 9, Name: "TP.Thủ Đức"))
         return list
     }
     

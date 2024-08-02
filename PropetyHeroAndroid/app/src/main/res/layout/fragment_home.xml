@@ -196,7 +196,7 @@
                 android:layout_marginTop="@dimen/layout_margin"
                 android:background="#D8DCFF"
                 android:gravity="center"
-                android:paddingHorizontal="@dimen/layout_margin_double"
+                android:paddingHorizontal="20dp"
                 android:paddingVertical="@dimen/layout_margin_half">
 
                 <ImageView
