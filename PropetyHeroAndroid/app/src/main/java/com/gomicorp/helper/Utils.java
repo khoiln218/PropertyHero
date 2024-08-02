@@ -44,6 +44,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,6 +71,11 @@ public class Utils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String numberToString(double number) {
+        DecimalFormat format = new DecimalFormat("0.#");
+        return format.format(number);
     }
 
     public static double toNumber(String str) {

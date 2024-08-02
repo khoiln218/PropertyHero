@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gomicorp.app.Config;
+import com.gomicorp.helper.Utils;
 import com.gomicorp.propertyhero.R;
 import com.gomicorp.propertyhero.callbacks.OnLoadMoreListener;
 import com.gomicorp.propertyhero.model.Product;
@@ -125,8 +126,8 @@ public class ProductListAdapter extends RecyclerView.Adapter implements StickyRe
                         .into(((ViewHolderProduct) holder).thumb);
             }
 
-            ((ViewHolderProduct) holder).tvPrice.setText(product.getPrice() + " ");
-            ((ViewHolderProduct) holder).tvArea.setText(product.getGrossFloorArea() + " ");
+            ((ViewHolderProduct) holder).tvPrice.setText(Utils.numberToString(product.getPrice()));
+            ((ViewHolderProduct) holder).tvArea.setText(Utils.numberToString(product.getGrossFloorArea()));
             String characterFilter = "[^\\p{L}\\p{M}\\p{N}\\p{P}\\p{Z}\\p{Cf}\\p{Cs}\\s]";
             String title = product.getTitle().replaceAll(characterFilter, "").trim();
             ((ViewHolderProduct) holder).tvTitle.setText(title);

@@ -250,14 +250,14 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             setupSliderImage();
 
             idProperty.setText(String.format(getString(R.string.title_product).replace("...", String.valueOf(product.getId()))));
-            tvPrice.setText(String.valueOf(product.getPrice()));
+            tvPrice.setText(Utils.numberToString(product.getPrice()));
             tvTitle.setText(product.getTitle());
-            tvArea.setText(String.valueOf(product.getGrossFloorArea()));
+            tvArea.setText(Utils.numberToString(product.getGrossFloorArea()));
             tvFloor.setText((product.getFloor() > 0 ? product.getFloor() : " - ") + (product.getFloorCount() > 0 ? "/" + product.getFloorCount() : ""));
 
             double serviceFee = product.getServiceFee();
             if (serviceFee > 0)
-                tvServiceFee.setText(String.valueOf(serviceFee));
+                tvServiceFee.setText(Utils.numberToString(serviceFee));
             else {
                 tvServiceFee.setText("-");
                 findViewById(R.id.tvServiceFeeUnit).setVisibility(View.GONE);
@@ -279,16 +279,16 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
 
             double deposit = product.getDeposit();
             if (deposit > 0)
-                tvDepositInfo.setText(String.valueOf(deposit));
+                tvDepositInfo.setText(Utils.numberToString(deposit));
             else {
                 tvDepositInfo.setText("-");
                 findViewById(R.id.tvDepositUnit).setVisibility(View.GONE);
             }
 
-            tvPriceInfo.setText(String.valueOf(product.getPrice()));
+            tvPriceInfo.setText(Utils.numberToString(product.getPrice()));
             tvFloorInfo.setText(product.getFloor() > 0 ? String.valueOf(product.getFloor()) : "-");
             tvFloorCount.setText(product.getFloorCount() > 0 ? String.valueOf(product.getFloorCount()) : "-");
-            tvGFArea.setText(String.valueOf(product.getGrossFloorArea()));
+            tvGFArea.setText(Utils.numberToString(product.getGrossFloorArea()));
             tvBedroom.setText(product.getBedroom() > 0 ? String.valueOf(product.getBedroom()) : "-");
             tvBathroom.setText(product.getBathroom() > 0 ? String.valueOf(product.getBathroom()) : "-");
             tvDirection.setText(product.getDirectionName());

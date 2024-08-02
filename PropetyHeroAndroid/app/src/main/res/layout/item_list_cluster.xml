@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/avatar_size"
     android:layout_height="@dimen/avatar_size"
     android:layout_margin="@dimen/layout_margin_half">
@@ -31,14 +32,15 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:textSize="@dimen/text_size_secondary"
+                android:textStyle="bold"
+                tools:text="5.5" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/layout_margin_quarter"
                 android:text="@string/unit_price_month"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_size_secondary"

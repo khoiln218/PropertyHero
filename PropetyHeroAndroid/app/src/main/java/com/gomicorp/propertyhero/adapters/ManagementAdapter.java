@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gomicorp.app.Config;
+import com.gomicorp.helper.Utils;
 import com.gomicorp.propertyhero.R;
 import com.gomicorp.propertyhero.callbacks.OnLoadMoreListener;
 import com.gomicorp.propertyhero.callbacks.OnRecyclerItemClickListener;
@@ -117,7 +118,7 @@ public class ManagementAdapter extends RecyclerView.Adapter {
                     .resize(width, width)
                     .into(((ManagementViewHolder) holder).thumb);
 
-            ((ManagementViewHolder) holder).tvPrice.setText(String.valueOf(product.getPrice()));
+            ((ManagementViewHolder) holder).tvPrice.setText(Utils.numberToString(product.getPrice()));
             ((ManagementViewHolder) holder).tvAddress.setText(String.valueOf(product.getGrossFloorArea()));
             ((ManagementViewHolder) holder).tvTitle.setText(product.getTitle());
             ((ManagementViewHolder) holder).tvAddress.setText(product.getAddresss());

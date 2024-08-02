@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gomicorp.app.Config;
+import com.gomicorp.helper.Utils;
 import com.gomicorp.propertyhero.R;
 import com.gomicorp.propertyhero.model.Product;
 import com.squareup.picasso.Picasso;
@@ -71,8 +72,8 @@ public class ProductListHomeAdapter extends RecyclerView.Adapter {
                     .into(((ViewHolderProduct) holder).thumb);
         }
 
-        ((ViewHolderProduct) holder).tvPrice.setText(product.getPrice() + " ");
-        ((ViewHolderProduct) holder).tvArea.setText(product.getGrossFloorArea() + " ");
+        ((ViewHolderProduct) holder).tvPrice.setText(Utils.numberToString(product.getPrice()));
+        ((ViewHolderProduct) holder).tvArea.setText(Utils.numberToString(product.getGrossFloorArea()));
         String characterFilter = "[^\\p{L}\\p{M}\\p{N}\\p{P}\\p{Z}\\p{Cf}\\p{Cs}\\s]";
         String title = product.getTitle().replaceAll(characterFilter, "").trim();
         ((ViewHolderProduct) holder).tvTitle.setText(title);

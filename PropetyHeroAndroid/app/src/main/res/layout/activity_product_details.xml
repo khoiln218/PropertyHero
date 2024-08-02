@@ -79,13 +79,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="#2F2F2F" />
+                        android:textColor="#2F2F2F"
+                        tools:text="15" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/layout_margin_quarter"
-                        android:text=" triệu / tháng"
+                        android:text="triệu / tháng"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
                         android:textColor="#2F2F2F" />
                 </LinearLayout>
