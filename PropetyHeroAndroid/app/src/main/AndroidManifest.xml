@@ -30,7 +30,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="UnusedAttribute">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_app_api" />
@@ -69,17 +70,24 @@
             android:name="com.gomicorp.propertyhero.activities.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <data android:scheme="https" />
+                <data android:scheme="http" />
+                <data android:scheme="propertyhero" />
+                <data android:host="propertyhero.io" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.gomicorp.propertyhero.activities.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -88,7 +96,8 @@
         </activity>
         <activity
             android:name="com.gomicorp.propertyhero.activities.OnboardingActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
 
         <service
             android:name="com.gomicorp.services.RegistrationIntentService"

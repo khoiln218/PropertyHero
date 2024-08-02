@@ -11,6 +11,16 @@
 				<string>com.googleusercontent.apps.721105407584-lj93al1ijc39uipfdu5to0qtmklgr6b7</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>propertyhero.io</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>http</string>
+                <string>https</string>
+                <string>propertyhero</string>
+            </array>
+        </dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>835680071452810</string>

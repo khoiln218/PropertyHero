@@ -111,8 +111,23 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                 annotation: options[UIApplication.OpenURLOptionsKey.annotation]
             )
+        } else if url.scheme == "propertyhero" || url.scheme == "http" || url.scheme == "https" {
+            return handleDeepLink(url: url)
         }
         return GIDSignIn.sharedInstance.handle(url)
+    }
+    
+    func handleDeepLink(url: URL) -> Bool {
+        print(url)
+        return true
+    }
+
+    func navigateToHome() {
+        // Implementation for navigating to the home screen
+    }
+
+    func navigateToProfile() {
+        // Implementation for navigating to the profile screen
     }
 }
 
