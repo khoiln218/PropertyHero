@@ -23,7 +23,6 @@
             app:srcCompat="@drawable/vector_dropdown_corner" />
 
         <TextView
-            android:textStyle="bold"
             android:id="@+id/tvSelectProvince"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,8 +31,9 @@
             android:paddingRight="@dimen/layout_margin_half"
             android:singleLine="true"
             android:text="@string/text_province"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_size_primary" />
+            android:textColor="#2F2F2F"
+            android:textSize="@dimen/text_size_primary"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <EditText
@@ -42,6 +42,7 @@
         android:layout_height="@dimen/input_height"
         android:layout_marginTop="@dimen/layout_margin"
         android:background="@drawable/border_layout"
+        android:drawableEnd="@drawable/vector_search"
         android:drawablePadding="@dimen/layout_margin_half"
         android:gravity="center"
         android:hint="@string/text_hint_find_marker"
@@ -55,9 +56,9 @@
         android:textSize="@dimen/text_size_secondary" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="@dimen/layout_margin"
         android:id="@+id/recyclerFindArea"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/layout_margin" />
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.gomicorp.propertyhero.fragments;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -154,8 +155,10 @@ public class SearchLocationFragment extends Fragment implements View.OnClickList
                 if (dataType == Config.PROVINCE_TYPE) {
                     province = (Province) object;
                     district = null;
-                } else if (dataType == Config.DISTRICT_TYPE)
+                } else if (dataType == Config.DISTRICT_TYPE) {
                     district = (District) object;
+                    tvSelectDistrict.setTextColor(Color.parseColor("#2F2F2F"));
+                }
 
                 updateUI();
             }
