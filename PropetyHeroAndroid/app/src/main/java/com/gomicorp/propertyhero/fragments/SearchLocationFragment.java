@@ -106,9 +106,11 @@ public class SearchLocationFragment extends Fragment implements View.OnClickList
                     if (obj.getId() == AppController.getInstance().getPrefManager().getDefaultProvince()) {
                         province = obj;
                         tvSelectProvince.setText(province.getName());
+                        break;
                     }
                 }
                 progressDialog.dismiss();
+
                 updateUI();
             }
 
@@ -157,7 +159,6 @@ public class SearchLocationFragment extends Fragment implements View.OnClickList
                     district = null;
                 } else if (dataType == Config.DISTRICT_TYPE) {
                     district = (District) object;
-                    tvSelectDistrict.setTextColor(Color.parseColor("#2F2F2F"));
                 }
 
                 updateUI();
@@ -169,7 +170,13 @@ public class SearchLocationFragment extends Fragment implements View.OnClickList
         if (province != null)
             tvSelectProvince.setText(province.getName());
 
-        tvSelectDistrict.setText(district != null ? district.getName() : getString(R.string.text_district));
+        if (district != null) {
+            tvSelectDistrict.setText(district.getName());
+            tvSelectDistrict.setTextColor(Color.parseColor("#2F2F2F"));
+        } else {
+            tvSelectDistrict.setText(R.string.text_district);
+            tvSelectDistrict.setTextColor(Color.parseColor("#808080"));
+        }
 
         if (district != null && province != null)
             btnLocationSearch.setEnabled(true);
