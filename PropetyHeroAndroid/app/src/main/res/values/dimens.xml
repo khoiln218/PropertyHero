@@ -29,4 +29,6 @@
 
     <dimen name="input_height">42dp</dimen>
     <dimen name="input_width">96dp</dimen>
+
+    <dimen name="login_btn_top">-16dp</dimen>
 </resources>
