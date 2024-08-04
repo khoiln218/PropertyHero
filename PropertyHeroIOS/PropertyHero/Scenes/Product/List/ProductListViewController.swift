@@ -16,7 +16,7 @@ import MGLoadMore
 final class ProductListViewController: UIViewController, Bindable {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var collectionView: PagingCollectionView!
+    @IBOutlet weak var list: PagingTableView!
     
     // MARK: - Properties
     
@@ -62,8 +62,7 @@ final class ProductListViewController: UIViewController, Bindable {
     // MARK: - Methods
     
     private func configView() {
-        collectionView.do {
-            $0.delegate = self
+        list.do {
             $0.dataSource = self
             $0.register(cellType: ProductCell.self)
         }
@@ -72,9 +71,9 @@ final class ProductListViewController: UIViewController, Bindable {
     func bindViewModel() {
         let input = ProductListViewModel.Input(
             load: Driver.just(()),
-            reload: collectionView.refreshTrigger,
-            loadMore: collectionView.loadMoreTrigger,
-            selectProduct: collectionView.rx.itemSelected.asDriver(),
+            reload: list.refreshTrigger,
+            loadMore: list.loadMoreTrigger,
+            selected: list.rx.itemSelected.asDriver(),
             filter: filter.asDriverOnErrorJustComplete()
         )
         
@@ -85,7 +84,7 @@ final class ProductListViewController: UIViewController, Bindable {
             .drive(onNext: { [unowned self] distance in
                 if let distance = distance {
                     if distance == 0 {
-                        self.collectionView.refreshFooter = nil
+                        self.list.refreshFooter = nil
                     }
                 }
             })
@@ -104,7 +103,7 @@ final class ProductListViewController: UIViewController, Bindable {
             .asDriver()
             .drive(onNext: { [unowned self] products in
                 self.products = products
-                self.collectionView.reloadData()
+                self.list.reloadData()
             })
             .disposed(by: disposeBag)
         
@@ -121,69 +120,37 @@ final class ProductListViewController: UIViewController, Bindable {
         
         output.$isReloading
             .asDriver()
-            .drive(collectionView.isRefreshing)
+            .drive(list.isRefreshing)
             .disposed(by: disposeBag)
         
         output.$isLoadingMore
             .asDriver()
-            .drive(collectionView.isLoadingMore)
+            .drive(list.isLoadingMore)
             .disposed(by: disposeBag)
         
         output.$isEmpty
             .asDriver()
-            .drive(collectionView.isEmpty)
+            .drive(list.isEmpty)
             .disposed(by: disposeBag)
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension ProductListViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension ProductListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let product = self.products[indexPath.row]
+        return tableView.dequeueReusableCell(
             for: indexPath,
             cellType: ProductCell.self
         )
         .then {
-            $0.addBorders(edges: [.bottom], color: UIColor(hex: "#ECEFF1")!, width: 1)
-            $0.bindViewModel(products[indexPath.row])
+            $0.selectionStyle = .none
+            $0.separatorInset = UIEdgeInsets.zero
+            $0.bindViewModel(product)
         }
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension ProductListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.size.width
-        let height = 84.0 + 16.0
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }
 

@@ -147,24 +147,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxF-bs-wPy">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jhb-ui-DZU" customClass="PagingCollectionView" customModule="MGLoadMore">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q5u-L9-uOe" customClass="PagingTableView" customModule="MGLoadMore">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K16-t2-L6f">
-                                            <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells/>
-                                    </collectionView>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jhb-ui-DZU" secondAttribute="bottom" id="0TP-Mz-VC3"/>
-                                    <constraint firstAttribute="trailing" secondItem="jhb-ui-DZU" secondAttribute="trailing" id="Aha-lo-aBY"/>
-                                    <constraint firstItem="jhb-ui-DZU" firstAttribute="top" secondItem="oxF-bs-wPy" secondAttribute="top" id="IGR-3h-Tb5"/>
-                                    <constraint firstItem="jhb-ui-DZU" firstAttribute="leading" secondItem="oxF-bs-wPy" secondAttribute="leading" id="itN-aq-4nc"/>
+                                    <constraint firstAttribute="trailing" secondItem="q5u-L9-uOe" secondAttribute="trailing" id="M6N-EW-xFH"/>
+                                    <constraint firstAttribute="bottom" secondItem="q5u-L9-uOe" secondAttribute="bottom" id="R73-7T-kHw"/>
+                                    <constraint firstItem="q5u-L9-uOe" firstAttribute="top" secondItem="oxF-bs-wPy" secondAttribute="top" id="TZg-xa-oW5"/>
+                                    <constraint firstItem="q5u-L9-uOe" firstAttribute="leading" secondItem="oxF-bs-wPy" secondAttribute="leading" id="Yrg-MB-vKb"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -178,7 +171,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="jhb-ui-DZU" id="gd8-Aq-ERH"/>
+                        <outlet property="list" destination="q5u-L9-uOe" id="r0L-hU-HgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iod-nX-XHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -254,7 +247,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="88.666666666666671"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8Z-PC-jKL" customClass="DLRadioButton">
-                                                                <rect key="frame" x="0.0" y="0.0" width="226.33333333333334" height="34.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="209" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Tin rao đã có người thuê">
                                                                     <color key="baseForegroundColor" red="0.37647058820000001" green="0.49019607840000001" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -285,7 +278,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53y-JJ-2TC" customClass="DLRadioButton">
-                                                                <rect key="frame" x="0.0" y="34.333333333333314" width="354" height="54.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="34.333333333333314" width="336.66666666666669" height="54.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Thông tin không chính xác (hình ảnh, địa chỉ, giá thuê...)">
                                                                     <color key="baseForegroundColor" red="0.37647058823529411" green="0.49019607843137253" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>

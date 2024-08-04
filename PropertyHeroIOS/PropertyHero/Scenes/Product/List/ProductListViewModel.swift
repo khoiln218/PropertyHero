@@ -22,7 +22,7 @@ extension ProductListViewModel: ViewModel {
         let load: Driver<Void>
         let reload: Driver<Void>
         let loadMore: Driver<Void>
-        let selectProduct: Driver<IndexPath>
+        let selected: Driver<IndexPath>
         let filter: Driver<Void>
     }
     
@@ -100,7 +100,7 @@ extension ProductListViewModel: ViewModel {
             .drive(output.$products)
             .disposed(by: disposeBag)
         
-        select(trigger: input.selectProduct, items: productList)
+        select(trigger: input.selected, items: productList)
             .drive(onNext: { product in
                 self.navigator.toProductDetail(product.Id)
             })

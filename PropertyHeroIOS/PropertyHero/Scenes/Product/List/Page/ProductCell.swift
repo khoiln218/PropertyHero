@@ -2,12 +2,12 @@
 //  ProductCell.swift
 //  PropertyHero
 //
-//  Created by KHOI LE on 8/13/23.
+//  Created by KHOI LE on 8/22/23.
 //
 
 import UIKit
 
-class ProductCell: PageCollectionCell {
+class ProductCell: PageTableCell {
     @IBOutlet weak var thumb: UIImageView!
     @IBOutlet weak var empty: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -32,7 +32,7 @@ class ProductCell: PageCollectionCell {
         attPrice.setAttributes([.foregroundColor: colorUnit], range: NSRange(location:priceWithUnit.count - 5 - gv.count, length: 5 + gv.count))
         self.priceLabel.attributedText = attPrice
         
-        self.nameLabel.text = viewModel.Title.withoutEmoji().trimmingCharacters(in: .whitespacesAndNewlines)
+        self.nameLabel.text = viewModel.Title
         self.addressLabel.text = viewModel.Address
         let imageUrl = viewModel.Images.components(separatedBy: ", ")[0]
         self.thumb.setImage(with: URL(string: imageUrl)) {[unowned self] (_,error,_,_) in
