@@ -104,10 +104,10 @@ extension FilterViewModel: ViewModel {
             .drive(onNext: { propertyId, bed, minPrice, maxPrice, minArea, maxArea in
                 var filterSet = FilterStorage().getFilterSet()
                 filterSet.propertyID = Int(propertyId.id) ?? filterSet.propertyID
-                filterSet.minPrice = Double(minPrice) ?? filterSet.minPrice
-                filterSet.maxPrice = Double(maxPrice) ?? filterSet.maxPrice
-                filterSet.minArea = Double(minArea) ?? filterSet.minArea
-                filterSet.maxArea = Double(maxArea) ?? filterSet.maxArea
+                filterSet.minPrice = Double(minPrice) ?? 0.0
+                filterSet.maxPrice = Double(maxPrice) ?? 0.0
+                filterSet.minArea = Double(minArea) ?? 0.0
+                filterSet.maxArea = Double(maxArea) ?? 0.0
                 filterSet.bed = bed
                 FilterStorage().addFilterSet(filterSet)
                 self.navigator.goBack()
