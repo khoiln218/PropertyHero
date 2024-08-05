@@ -57,18 +57,18 @@ class SummaryProductCell: PageTableCell {
         price.attributedText = priceText
         title.text = viewModel.Title
         
-        let gvText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.GrossFloorArea.clean), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!])
-        gvText.append(NSMutableAttributedString(string: " m\u{00B2}", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!]))
+        let gvText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.GrossFloorArea.clean), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#7F80EB")!])
+        gvText.append(NSMutableAttributedString(string: " m\u{00B2}", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(hex: "#7F80EB")!]))
         gv.attributedText = gvText
         
         floor.text = viewModel.Floor > 0 ? String(viewModel.Floor) : "-"
         
         if viewModel.Deposit > 0 {
-            let depositText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.Deposit), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!])
-            depositText.append(NSMutableAttributedString(string: " tr/thg", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!]))
+            let depositText:NSMutableAttributedString = NSMutableAttributedString(string: String(viewModel.Deposit), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#7F80EB")!])
+            depositText.append(NSMutableAttributedString(string: " tr/thg", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(hex: "#7F80EB")!]))
             deposit.attributedText = depositText
         } else {
-            deposit.attributedText = NSMutableAttributedString(string: "-", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#01A0B9")!])
+            deposit.attributedText = NSMutableAttributedString(string: "-", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor(hex: "#7F80EB")!])
         }
         layoutIfNeeded()
     }
