@@ -94,7 +94,7 @@ public class Utils {
     }
 
     public static boolean isValidPhoneNumber(String number) {
-        return TextUtils.isEmpty(number) || isVNPhoneNumber(number);
+        return isVNPhoneNumber(number);
     }
 
     public static boolean isNullOrEmpty(String str) {

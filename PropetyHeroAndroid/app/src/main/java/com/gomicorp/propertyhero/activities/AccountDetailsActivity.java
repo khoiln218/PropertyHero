@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -425,7 +426,7 @@ public class AccountDetailsActivity extends AppCompatActivity implements View.On
         }
 
         String phoneNumber = inputPhoneNumber.getText().toString();
-        if (!Utils.isValidPhoneNumber(phoneNumber)) {
+        if (!TextUtils.isEmpty(phoneNumber) && !Utils.isValidPhoneNumber(phoneNumber)) {
             L.showAlert(this, null, getString(R.string.text_err_phone));
             InputValidation.requestFocus(this, inputPhoneNumber);
             return;
