@@ -56,7 +56,7 @@ struct AccountInfoUseCase: AccountInfoUseCaseType, GetLocation, Login {
     
     func validatePhoneNumber(_ phoneNumber: String) -> ValidationResult {
         if phoneNumber.isEmpty {
-            return .failure(ValidationError(message: "Vui lòng nhập số điện thoại"))
+            return .success(())
         } else if isValidPhoneNumber(phone: phoneNumber) {
             return .success(())
         } else {
