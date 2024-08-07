@@ -13,6 +13,7 @@ protocol MoreNavigatorType {
     func toFeedback()
     func toSetting()
     func toAbout()
+    func toAccountDeletion()
 }
 
 struct MoreNavigator: MoreNavigatorType {
@@ -41,6 +42,11 @@ struct MoreNavigator: MoreNavigatorType {
     
     func toAbout() {
         let vc: AboutViewController = assembler.resolve(navigationController: navigationController)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toAccountDeletion() {
+        let vc: AccountDeletionViewController = assembler.resolve(navigationController: navigationController)
         navigationController.pushViewController(vc, animated: true)
     }
 }

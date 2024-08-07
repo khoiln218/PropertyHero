@@ -1177,14 +1177,44 @@
                                                             <action selector="onSignOut:" destination="eOT-PA-6HH" eventType="touchUpInside" id="PXI-09-f9k"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5p7-vn-VTH">
+                                                        <rect key="frame" x="8" y="561" width="359" height="48"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_delete-trash" translatesAutoresizingMaskIntoConstraints="NO" id="Kvt-xA-98w">
+                                                                <rect key="frame" x="8" y="8" width="32" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="32" id="PWU-Bn-YNk"/>
+                                                                    <constraint firstAttribute="width" secondItem="Kvt-xA-98w" secondAttribute="height" multiplier="1:1" id="cVF-Uy-IXk"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xóa tài khoản" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUM-rI-WRc">
+                                                                <rect key="frame" x="56" y="14.333333333333369" width="98" height="19.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <color key="textColor" red="0.37647058820000001" green="0.49019607840000001" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="OUM-rI-WRc" firstAttribute="leading" secondItem="Kvt-xA-98w" secondAttribute="trailing" constant="16" id="4Yg-z2-OoC"/>
+                                                            <constraint firstItem="OUM-rI-WRc" firstAttribute="centerY" secondItem="Kvt-xA-98w" secondAttribute="centerY" id="9A0-sZ-fZP"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Kvt-xA-98w" secondAttribute="bottom" constant="8" id="Wgg-dq-QmS"/>
+                                                            <constraint firstItem="Kvt-xA-98w" firstAttribute="top" secondItem="5p7-vn-VTH" secondAttribute="top" constant="8" id="aAr-f6-XQz"/>
+                                                            <constraint firstItem="Kvt-xA-98w" firstAttribute="centerY" secondItem="5p7-vn-VTH" secondAttribute="centerY" id="ina-Gh-iJq"/>
+                                                            <constraint firstItem="Kvt-xA-98w" firstAttribute="leading" secondItem="5p7-vn-VTH" secondAttribute="leading" constant="8" id="ugB-4k-yf5"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="5p7-vn-VTH" secondAttribute="trailing" constant="8" id="4iC-cf-Wha"/>
                                                     <constraint firstAttribute="trailing" secondItem="KD9-12-hLw" secondAttribute="trailing" id="GjN-Lo-gJi"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ld1-HI-OqA" secondAttribute="trailing" constant="16" id="T7C-nF-7ap"/>
                                                     <constraint firstItem="RzW-6e-eL1" firstAttribute="leading" secondItem="Zgr-BZ-GVK" secondAttribute="leading" id="VIE-eL-ziF"/>
+                                                    <constraint firstItem="5p7-vn-VTH" firstAttribute="leading" secondItem="Zgr-BZ-GVK" secondAttribute="leading" constant="8" id="ee6-zj-bof"/>
                                                     <constraint firstItem="KD9-12-hLw" firstAttribute="leading" secondItem="Zgr-BZ-GVK" secondAttribute="leading" id="f1f-Vu-gDY"/>
                                                     <constraint firstAttribute="trailing" secondItem="RzW-6e-eL1" secondAttribute="trailing" id="ieL-I6-cM8"/>
+                                                    <constraint firstItem="5p7-vn-VTH" firstAttribute="top" secondItem="RzW-6e-eL1" secondAttribute="bottom" constant="8" id="ns6-mO-XPD"/>
                                                     <constraint firstItem="Ld1-HI-OqA" firstAttribute="leading" secondItem="Zgr-BZ-GVK" secondAttribute="leading" constant="16" id="nw4-Hd-xHg"/>
                                                     <constraint firstItem="RzW-6e-eL1" firstAttribute="top" secondItem="KD9-12-hLw" secondAttribute="bottom" id="qkt-Xd-orF"/>
                                                     <constraint firstItem="KD9-12-hLw" firstAttribute="top" secondItem="Zgr-BZ-GVK" secondAttribute="top" id="vGE-aJ-m4l"/>
@@ -1228,6 +1258,7 @@
                         <outlet property="accountInfo" destination="Oyx-A1-2PW" id="ZT3-vn-w41"/>
                         <outlet property="contactView" destination="XLd-6u-N4g" id="YaA-JB-ww4"/>
                         <outlet property="container" destination="8YL-P6-r10" id="0jy-Zz-NE8"/>
+                        <outlet property="deleteAccount" destination="5p7-vn-VTH" id="om5-6n-cZ1"/>
                         <outlet property="fullname" destination="pQ0-xq-Pa6" id="FDe-dZ-ScQ"/>
                         <outlet property="infoView" destination="5ZZ-OZ-ecv" id="1D5-Fv-4SV"/>
                         <outlet property="logOut" destination="Ld1-HI-OqA" id="MD8-N7-NrF"/>

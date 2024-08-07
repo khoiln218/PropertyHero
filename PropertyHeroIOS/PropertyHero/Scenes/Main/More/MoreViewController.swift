@@ -28,6 +28,7 @@ final class MoreViewController: UIViewController, Bindable {
     @IBOutlet weak var logOut: UIButton!
     @IBOutlet weak var twitterView: UIStackView!
     @IBOutlet weak var telegramView: UIStackView!
+    @IBOutlet weak var deleteAccount: UIView!
     
     // MARK: - Properties
     
@@ -78,11 +79,13 @@ final class MoreViewController: UIViewController, Bindable {
             loginLabel.hidden()
             accountInfo.visible()
             logOut.visible()
+            deleteAccount.visible()
             accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
             fullname.text = account.FullName
             
         } else {
             logOut.hidden()
+            deleteAccount.hidden()
         }
         
         self.account.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAccount(_:))))
@@ -91,6 +94,7 @@ final class MoreViewController: UIViewController, Bindable {
         self.twitterView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTwitter(_:))))
         self.ratingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onRating(_:))))
         self.contactView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFeedback(_:))))
+        self.deleteAccount.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onDelete(_:))))
         
         self.accountAvatar.layer.borderWidth = 1.0
         self.accountAvatar.layer.masksToBounds = false
@@ -109,6 +113,10 @@ final class MoreViewController: UIViewController, Bindable {
         NotificationCenter.default.post(
             name: Notification.Name.logout,
             object: nil)
+    }
+    
+    @objc func onDelete(_ sender: UITapGestureRecognizer) {
+        self.viewModel.navigator.toAccountDeletion()
     }
     
     @objc func onAbout(_ sender: UITapGestureRecognizer) {
@@ -164,6 +172,7 @@ final class MoreViewController: UIViewController, Bindable {
         loginLabel.visible()
         accountInfo.hidden()
         logOut.hidden()
+        deleteAccount.hidden()
     }
     
     @objc func updateAvatar(_ notification: NSNotification) {
@@ -185,6 +194,7 @@ final class MoreViewController: UIViewController, Bindable {
                     loginLabel.hidden()
                     accountInfo.visible()
                     logOut.visible()
+                    deleteAccount.visible()
                     accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
                     fullname.text = account.FullName
                 }
@@ -200,6 +210,7 @@ final class MoreViewController: UIViewController, Bindable {
                 loginLabel.hidden()
                 accountInfo.visible()
                 logOut.visible()
+                deleteAccount.visible()
                 accountAvatar.setAvatarImage(with: URL(string: account.Avatar))
                 fullname.text = account.FullName
             }
