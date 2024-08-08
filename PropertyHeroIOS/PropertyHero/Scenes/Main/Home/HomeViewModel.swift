@@ -38,8 +38,6 @@ extension HomeViewModel: ViewModel {
         let activityIndicator = ActivityIndicator()
         
         let bannerList = self.useCase.getBanner()
-            .trackError(errorTracker)
-            .trackActivity(activityIndicator)
             .asDriverOnErrorJustComplete()
         
         let filterSet = FilterStorage().getFilterSet()
@@ -101,6 +99,9 @@ extension HomeViewModel: ViewModel {
                 )
                 return sections
             }
+            .trackError(errorTracker)
+            .trackActivity(activityIndicator)
+            .asDriverOnErrorJustComplete()
         
         sectionsLoad
             .drive(output.$sections)
