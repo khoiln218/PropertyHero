@@ -1954,7 +1954,7 @@
 				CODE_SIGN_ENTITLEMENTS = PropertyHero/PropertyHero.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9L653723SV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PropertyHero/Info.plist;
@@ -1990,7 +1990,7 @@
 				CODE_SIGN_ENTITLEMENTS = PropertyHero/PropertyHero.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9L653723SV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PropertyHero/Info.plist;

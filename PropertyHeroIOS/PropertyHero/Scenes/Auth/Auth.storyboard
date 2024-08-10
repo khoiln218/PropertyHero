@@ -273,7 +273,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="943"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-YW-eD3">
-                                                <rect key="frame" x="32" y="24" width="329" height="382"/>
+                                                <rect key="frame" x="32" y="24" width="329" height="314"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="xQA-4f-saP">
                                                         <rect key="frame" x="0.0" y="0.0" width="329" height="60"/>
@@ -351,8 +351,8 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-vx-H3f">
-                                                        <rect key="frame" x="0.0" y="272" width="329" height="60"/>
+                                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-vx-H3f">
+                                                        <rect key="frame" x="0.0" y="268" width="329" height="48"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại liên hệ" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AqE-S5-R10">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="42"/>
@@ -363,7 +363,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hJ-uu-vBV">
-                                                                <rect key="frame" x="0.0" y="48" width="329" height="12"/>
+                                                                <rect key="frame" x="0.0" y="48" width="329" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -371,7 +371,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTt-Jm-epQ">
-                                                        <rect key="frame" x="0.0" y="340" width="329" height="42"/>
+                                                        <rect key="frame" x="0.0" y="272" width="329" height="42"/>
                                                         <color key="backgroundColor" red="0.16862745100000001" green="0.31372549020000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="42" id="QAt-9A-o4z"/>

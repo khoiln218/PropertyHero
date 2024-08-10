@@ -92,13 +92,7 @@ struct RegisterUseCase: RegisterUseCaseType, Login {
     }
     
     func validatePhoneNumber(_ phoneNumber: String) -> ValidationResult {
-        if phoneNumber.isEmpty {
-            return .failure(ValidationError(message: "Vui lòng nhập số điện thoại"))
-        } else if isValidPhoneNumber(phone: phoneNumber) {
-            return .success(())
-        } else {
-            return .failure(ValidationError(message: "Số điện thoại không đúng định dạng (03xxxxxxxx, 05xxxxxxxx, 07xxxxxxxx, 08xxxxxxxx, 09xxxxxxxx)"))
-        }
+        return .success(())
     }
     
     func isValidPhoneNumber(phone: String) -> Bool {
