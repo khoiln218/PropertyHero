@@ -145,7 +145,7 @@ final class MoreViewController: UIViewController, Bindable {
     }
     
     @objc func onRating(_ sender: UITapGestureRecognizer) {
-        if let url = URL(string: "https://apps.apple.com/app/id6461215254") {
+        if let url = URL(string: "https://apps.apple.com/app/id6612025728") {
             UIApplication.shared.open(url)
         }
     }
