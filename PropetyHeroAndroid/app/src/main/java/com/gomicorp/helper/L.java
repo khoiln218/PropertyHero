@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,10 +15,14 @@ import androidx.appcompat.app.AlertDialog;
 import com.gomicorp.app.AppController;
 import com.gomicorp.app.Config;
 import com.gomicorp.propertyhero.R;
+import com.gomicorp.propertyhero.TranslateService;
 import com.gomicorp.propertyhero.activities.ListViewProductActivity;
 import com.gomicorp.propertyhero.activities.UpdatePhoneNumberActivity;
 import com.gomicorp.propertyhero.model.Marker;
 import com.gomicorp.propertyhero.model.SearchInfo;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by CTO-HELLOSOFT on 3/29/2016.
@@ -104,5 +110,15 @@ public class L {
 
     public static void showToast(String msg) {
         Toast.makeText(AppController.getInstance().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
+    public static void getString(String text, TranslateService.OnTranslation callback) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executor.execute(() -> {
+            String resultText = TranslateService.getInstance().translateText(text, "vi", "en");
+            handler.post(() -> callback.onResult(resultText));
+        });
     }
 }

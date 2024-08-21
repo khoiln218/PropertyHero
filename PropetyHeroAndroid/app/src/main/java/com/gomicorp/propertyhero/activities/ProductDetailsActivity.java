@@ -226,7 +226,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
                 if (products.size() > 0) {
                     product = products.get(0);
                 } else {
-                    L.showToast("Tin đã hết hạn");
+                    L.showToast(getString(R.string.product_expire));
                     requestDeleteFavorite_V2();
                 }
 
@@ -252,6 +252,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             idProperty.setText(String.format(getString(R.string.title_product).replace("...", String.valueOf(product.getId()))));
             tvPrice.setText(Utils.numberToString(product.getPrice()));
             tvTitle.setText(product.getTitle());
+            L.getString(product.getTitle(), text -> tvTitle.setText(text));
             tvArea.setText(Utils.numberToString(product.getGrossFloorArea()));
             tvFloor.setText((product.getFloor() > 0 ? product.getFloor() : " - ") + (product.getFloorCount() > 0 ? "/" + product.getFloorCount() : ""));
 
@@ -296,6 +297,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements OnMapRe
             tvPet.setText(product.getPets() > 0 ? getString(R.string.text_on) : getString(R.string.text_off));
             tvNumPerson.setText(product.getNumPerson() > 0 ? String.valueOf(product.getNumPerson()) : "-");
             tvContent.setText(product.getContent());
+            L.getString(product.getContent(), text -> tvContent.setText(text));
             tvContactName.setText(product.getContactName());
             tvContactPhone.setText(Utils.phoneFormatter(product.getContactPhone()));
 

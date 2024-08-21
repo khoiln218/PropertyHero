@@ -157,8 +157,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }));
 
         TextView textView = root.findViewById(R.id.suggest_title);
-        String string1 = "Nhận ngay thông tin\nbất động sản";
-        String string2 = " HOT tại PHR ";
+        String string1 = getString(R.string.banner_title);
+        String string2 = getString(R.string.banner_title_2);
         SpannableString spannableString = new SpannableString(string1 + string2);
         spannableString.setSpan(new BackgroundColorSpan(Color.parseColor("#FEEDCC")), string1.length(), string1.length() + string2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#0077D5")), string1.length(), string1.length() + 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -168,7 +168,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         textView.setText(spannableString, TextView.BufferType.SPANNABLE);
 
         TextView aiTxt = root.findViewById(R.id.ai_title);
-        String text = "PHR đề xuất theo khu vực bằng AI";
+        String text = getString(R.string.suggest_ai);
         SpannableString spannableAi = new SpannableString(text);
         spannableAi.setSpan(new ForegroundColorSpan(Color.parseColor("#0077D5")), text.length() - 8, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new StyleSpan(Typeface.BOLD | Typeface.ITALIC), text.length() - 8, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -291,7 +291,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.hot_view_all:
                 Intent intent = new Intent(requireContext(), ListViewProductActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(Config.STRING_DATA, "Bất động sản HOT");
+                bundle.putString(Config.STRING_DATA, getString(R.string.property_hot));
                 bundle.putParcelable(Config.PARCELABLE_DATA, searchInfo);
                 intent.putExtra(Config.DATA_EXTRA, bundle);
                 startActivity(intent);

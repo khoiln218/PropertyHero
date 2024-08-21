@@ -116,7 +116,7 @@
     <string name="text_language">Ngôn ngữ</string>
     <string name="text_about">Thông tin về Property Hero</string>
     <string name="text_version">Phiên bản:&#160;</string>
-    <string name="text_copyright" tools:ignore="TypographyEllipsis">\u00a9... Một sản phẩm của Gomi Corporation</string>
+    <string name="text_copyright" tools:ignore="TypographyEllipsis">\u00a9... Một sản phẩm của Property Hero</string>
 
     <string name="text_view_all">Tất Cả</string>
     <string name="text_apartment">Căn Hộ</string>
@@ -393,4 +393,9 @@
     <string name="hot_view_all">Xem Thêm Các bất Động Sản HOT</string>
     <string name="search_title_1">Tìm kiếm cho thuê</string>
     <string name="search_title_2">Bất động sản</string>
+    <string name="product_expire">Tin đã hết hạn</string>
+    <string name="property_hot">Bất động sản HOT</string>
+    <string name="suggest_ai">PHR đề xuất theo khu vực bằng AI</string>
+    <string name="banner_title">Nhận ngay thông tin\nbất động sản</string>
+    <string name="banner_title_2">" HOT tại PHR "</string>
 </resources>
