@@ -13,11 +13,14 @@ protocol ProductDetailUseCaseType {
     func getPowerLink(_ provinceId: Int) -> Observable<[Relocation]>
     func favorite(_ productId: Int, accountId: Int) -> Observable<Bool>
     func deleteFavorite(_ productId: Int, accountId: Int) -> Observable<Bool>
+    func translate(_ text: String) -> Observable<String>
 }
 
-struct ProductDetailUseCase: ProductDetailUseCaseType, GetProduct, GetCategory {
+struct ProductDetailUseCase: ProductDetailUseCaseType, GetProduct, GetCategory, Google {
+    
     let productGateway: ProductGatewayType
     var categoryGateway: CategoryGatewayType
+    var googleGateway: GoogleGatewayType
     
     func productDetail(_ productId: Int, accountId: Int, isMeViewThis: Int) -> Observable<Product> {
         return productGateway.detail(productId, accountId: accountId, isMeViewThis: isMeViewThis)
@@ -33,5 +36,8 @@ struct ProductDetailUseCase: ProductDetailUseCaseType, GetProduct, GetCategory {
     
     func deleteFavorite(_ productId: Int, accountId: Int) -> Observable<Bool> {
         return productGateway.favoriteDelete(productId, accountId: accountId)
+    }
+    func translate(_ text: String, targetLang: String, apiKey: String) -> Observable<String> {
+        return googleGateway.translate(text)
     }
 }

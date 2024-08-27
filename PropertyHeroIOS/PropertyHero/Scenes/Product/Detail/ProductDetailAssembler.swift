@@ -38,6 +38,6 @@ extension ProductDetailAssembler where Self: DefaultAssembler {
     }
 
     func resolve() -> ProductDetailUseCaseType {
-        return ProductDetailUseCase(productGateway: resolve(), categoryGateway: resolve())
+        return ProductDetailUseCase(productGateway: resolve(), categoryGateway: resolve(), googleGateway: resolve())
     }
 }

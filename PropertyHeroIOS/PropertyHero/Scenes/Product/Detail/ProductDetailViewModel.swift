@@ -28,6 +28,7 @@ extension ProductDetailViewModel: ViewModel {
         @Property var productId: Int
         @Property var isSuccessful: Bool?
         @Property var detail = [Int: Any]()
+        @Property var translate = [String: String]()
         @Property var error: Error?
         @Property var isLoading = false
     }
@@ -44,6 +45,32 @@ extension ProductDetailViewModel: ViewModel {
                     .trackActivity(activityIndicator)
                     .asDriverOnErrorJustComplete()
             }
+        
+        let titleTranslate = product
+            .flatMapLatest{ product in
+                self.useCase.translate(product.Title)
+                    .trackError(error)
+                    .trackActivity(activityIndicator)
+                    .asDriverOnErrorJustComplete()
+            }
+        
+        let contentTranslate = product
+            .flatMapLatest{ product in
+                self.useCase.translate(product.Content)
+                    .trackError(error)
+                    .trackActivity(activityIndicator)
+                    .asDriverOnErrorJustComplete()
+            }
+        
+        Driver.combineLatest(titleTranslate, contentTranslate)
+            .map { title, content -> [String: String] in
+                var translate = [String: String]()
+                translate["title"] = title
+                translate["content"] = content
+                return translate
+            }
+            .drive(output.$translate)
+            .disposed(by: disposeBag)
         
         let relocations = product
             .flatMapLatest { product in

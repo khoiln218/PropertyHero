@@ -46,5 +46,8 @@ extension API {
         static let updateInfo = apiAuth + "UpdateInfo"
         static let accountDeletion = apiAuth + "AccountDelete"
         static let socialLogin = apiAuth + "SocialLogin"
+        
+        //Google
+        static let googleTranslate = "https://translation.googleapis.com/language/translate/v2"
     }
 }
