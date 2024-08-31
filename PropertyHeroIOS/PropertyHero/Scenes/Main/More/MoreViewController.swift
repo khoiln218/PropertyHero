@@ -29,6 +29,8 @@ final class MoreViewController: UIViewController, Bindable {
     @IBOutlet weak var twitterView: UIStackView!
     @IBOutlet weak var telegramView: UIStackView!
     @IBOutlet weak var deleteAccount: UIView!
+    @IBOutlet weak var langSpinner: UIStackView!
+    @IBOutlet weak var langValue: UILabel!
     
     // MARK: - Properties
     
@@ -88,6 +90,13 @@ final class MoreViewController: UIViewController, Bindable {
             deleteAccount.hidden()
         }
         
+        let lang = DefaultStorage().getLang()
+        if lang == Lang.en.rawValue {
+            self.langValue.text = LangName.en.rawValue
+        } else {
+            self.langValue.text = LangName.vi.rawValue
+        }
+        
         self.account.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAccount(_:))))
         self.infoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAbout(_:))))
         self.telegramView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTelegram(_:))))
@@ -95,6 +104,7 @@ final class MoreViewController: UIViewController, Bindable {
         self.ratingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onRating(_:))))
         self.contactView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onFeedback(_:))))
         self.deleteAccount.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onDelete(_:))))
+        self.langSpinner.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onLangChange(_:))))
         
         self.accountAvatar.layer.borderWidth = 1.0
         self.accountAvatar.layer.masksToBounds = false
@@ -113,6 +123,32 @@ final class MoreViewController: UIViewController, Bindable {
         NotificationCenter.default.post(
             name: Notification.Name.logout,
             object: nil)
+    }
+    
+    @objc func onLangChange(_ sender: UITapGestureRecognizer) {
+        let alert = UIAlertController(title: "   ", message: "   ", preferredStyle: .actionSheet)
+        
+        let messageAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor: UIColor.black]
+        let messageString = NSAttributedString(string: "Chọn ngôn ngữ", attributes: messageAttributes)
+        alert.setValue(messageString, forKey: "attributedMessage")
+        
+        alert.addAction(UIAlertAction(title: LangName.vi.rawValue, style: .default , handler:{ [unowned self] _ in
+            DefaultStorage().setLang(Lang.vi.rawValue)
+            NotificationCenter.default.post(
+                name: Notification.Name.settingChanged,
+                object: nil)
+            self.langValue.text = LangName.vi.rawValue
+        }))
+        alert.addAction(UIAlertAction(title: LangName.en.rawValue, style: .default , handler:{ [unowned self] _ in
+            DefaultStorage().setLang(Lang.en.rawValue)
+            NotificationCenter.default.post(
+                name: Notification.Name.settingChanged,
+                object: nil)
+            self.langValue.text = LangName.en.rawValue
+        }))
+        alert.addAction(UIAlertAction(title: "Đóng", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func onDelete(_ sender: UITapGestureRecognizer) {

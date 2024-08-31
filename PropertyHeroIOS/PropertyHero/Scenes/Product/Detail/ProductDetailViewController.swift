@@ -241,8 +241,8 @@ final class ProductDetailViewController: UIViewController, Bindable {
             .asDriver()
             .drive(onNext: { [unowned self] translate in
                 if !translate.isEmpty {
-                    self.product.Title = translate["title"] ?? self.product.Title
-                    self.product.Content = translate["content"] ?? self.product.Content
+                    self.product?.Title = translate["title"] ?? self.product.Title
+                    self.product?.Content = translate["content"] ?? self.product.Content
                     self.tableView.reloadData()
                 }
             })

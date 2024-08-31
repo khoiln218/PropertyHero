@@ -7,6 +7,16 @@
 
 import Foundation
 
+enum LangName: String {
+    case vi = "Tiếng Việt"
+    case en = "English"
+}
+
+enum Lang: String {
+    case vi = "vi"
+    case en = "en"
+}
+
 enum GenderName: String {
     case female = "Nữ"
     case male = "Nam"
