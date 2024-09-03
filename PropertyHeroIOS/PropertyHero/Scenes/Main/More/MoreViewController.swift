@@ -134,6 +134,8 @@ final class MoreViewController: UIViewController, Bindable {
         
         alert.addAction(UIAlertAction(title: LangName.vi.rawValue, style: .default , handler:{ [unowned self] _ in
             DefaultStorage().setLang(Lang.vi.rawValue)
+            Localize.setCurrentLanguage(Lang.vi.rawValue)
+            languageChange()
             NotificationCenter.default.post(
                 name: Notification.Name.settingChanged,
                 object: nil)
@@ -141,6 +143,8 @@ final class MoreViewController: UIViewController, Bindable {
         }))
         alert.addAction(UIAlertAction(title: LangName.en.rawValue, style: .default , handler:{ [unowned self] _ in
             DefaultStorage().setLang(Lang.en.rawValue)
+            Localize.setCurrentLanguage(Lang.en.rawValue)
+            languageChange()
             NotificationCenter.default.post(
                 name: Notification.Name.settingChanged,
                 object: nil)
@@ -149,6 +153,11 @@ final class MoreViewController: UIViewController, Bindable {
         alert.addAction(UIAlertAction(title: "Đóng", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func languageChange() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.bindViewModel()
     }
     
     @objc func onDelete(_ sender: UITapGestureRecognizer) {
